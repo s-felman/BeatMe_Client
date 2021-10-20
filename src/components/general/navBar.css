@@ -1,0 +1,94 @@
+.navBar{
+    position: relative;
+    width: 100%;
+    height: 110px;
+    left: 0px;
+    text-align: center;
+    display: flex;    
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: baseline;
+   background: #FFFFFF;
+   padding-top: 26px;
+   padding-right: 2.8em;
+}
+
+
+
+.search{
+    
+    position: absolute;
+    width: 369px;
+    height: 51px;
+    left: 58px;
+    top: 37px;
+    text-align: right;
+    background: rgba(255, 255, 255, 0.43);
+    border: 3px solid rgba(0, 31, 70, 0.7);
+    }
+    
+    .search-icon{
+        position: absolute;
+    width: 31.02px;
+    height: 31.02px;
+    left: 375px;
+    top: 46px;
+    border: 0vmax;
+    background: url(../../static/images/search-icon.png);
+    }
+
+    .links{
+    width: 200px;
+    height: 42px;
+    top: 37px;
+    font-family: almoni-dl-aaa-400;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 115.48%;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: -0.005em;
+    
+    color: rgba(0, 31, 70, 0.75);
+    }
+
+/* @media (min-width:400px) {
+
+
+
+}
+a{
+    display: flex;
+    direction: rtl;
+    flex-direction: row-reverse;
+}
+
+@media (max-width:400px) {
+    .navBar{
+        position: relative;
+        width: 100%;
+        height: 60px;
+        margin-bottom: 2em;
+        left: 0px;
+        top: 0px;
+        background: #AFB0B1;
+    }
+    
+.logo{
+    position: sticky;
+    width: 100%;
+    max-width:40em;
+    height: 4em;
+    max-height: 44px;
+    right: -66em;
+    top: 1.5em;
+    background: url(./pictures/logo.png);    
+    background-repeat: no-repeat;
+}
+}
+
+
+
+
+ */

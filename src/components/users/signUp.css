@@ -1,0 +1,257 @@
+.signUp-title{
+    position: absolute;
+    width: 870px;
+    height: 141px;
+    left: 525px;
+    top: 160px;
+
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 144px;
+    line-height: 135px;
+    text-align: center;
+
+    color: rgba(243, 58, 80, 0.47);
+}
+.enter-loginUser{
+    position: absolute;
+    width: 418px;
+    height: 44px;
+    left: 751px;
+    top: 290px;
+
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 93.48%;
+    /* or 22px */
+
+    text-align: center;
+
+    color: #FF2C45;
+}
+.signUp-firstName{
+    position: absolute;
+    width: 675px;
+    height: 53px;
+    left: 623px;
+    top: 433px;
+    
+    background: rgba(255, 255, 255, 0.43);
+    border: 3px solid rgba(0, 31, 70, 0.7);
+}
+.signUp-firstName-text{
+    position: absolute;
+    width: 268px;
+    height: 40px;
+    left: 990px;
+    top: 443px;
+
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 93.48%;
+    /* or 34px */
+
+    text-align: right;
+
+    color: rgba(0, 31, 70, 0.4);
+}
+.signUp-lastName-text{
+    position: absolute;
+    width: 268px;
+    height: 40px;
+    left: 990px;
+    top: 365px;
+
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 93.48%;
+    /* or 34px */
+
+    text-align: right;
+
+    color: rgba(0, 31, 70, 0.4);
+}
+.signUp-lastName{
+    position: absolute;
+    width: 675px;
+    height: 53px;
+    left: 622px;
+    top: 355px;
+
+    background: rgba(255, 255, 255, 0.43);
+    border: 3px solid rgba(0, 31, 70, 0.7);
+}
+.signUp-userName{
+    position: absolute;
+    width: 675px;
+    height: 53px;
+    left: 623px;
+    top: 510px;
+    
+    background: rgba(255, 255, 255, 0.43);
+    border: 3px solid rgba(0, 31, 70, 0.7);
+}
+.signUp-userName-text{
+    position: absolute;
+    width: 268px;
+    height: 40px;
+    left: 990px;
+    top: 520px;
+
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 93.48%;
+    /* or 34px */
+
+    text-align: right;
+
+    color: rgba(0, 31, 70, 0.4);
+}
+.signUp-phone{
+    position: absolute;
+    width: 675px;
+    height: 53px;
+    left: 623px;
+    top: 742px;
+    
+    background: rgba(255, 255, 255, 0.43);
+    border: 3px solid rgba(0, 31, 70, 0.7);
+}
+.signUp-phone-text{
+    position: absolute;
+    width: 268px;
+    height: 40px;
+    left: 990px;
+    top: 752px;
+
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 93.48%;
+    /* or 34px */
+
+    text-align: right;
+
+    color: rgba(0, 31, 70, 0.4);
+}
+.signUp-email-text{
+    position: absolute;
+    width: 268px;
+    height: 40px;
+    left: 990px;
+    top: 597px;
+    
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 93.48%;
+    /* or 34px */
+    
+    text-align: right;
+    
+    color: rgba(0, 31, 70, 0.4);
+}
+.signUp-email{
+    position: absolute;
+    width: 675px;
+    height: 53px;
+    left: 623px;
+    top: 587px;
+
+    background: rgba(255, 255, 255, 0.43);
+    border: 3px solid rgba(0, 31, 70, 0.7);
+}
+.signUp-password-text{
+    position: absolute;
+    width: 268px;
+    height: 40px;
+    left: 990px;
+    top: 674px;
+
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 93.48%;
+    /* or 34px */
+
+    text-align: right;
+
+    color: rgba(0, 31, 70, 0.4);
+}
+.signUp-password{
+    position: absolute;
+    width: 675px;
+    height: 53px;
+    left: 623px;
+    top: 664px;
+
+    background: rgba(255, 255, 255, 0.43);
+    border: 3px solid rgba(0, 31, 70, 0.7);
+}
+.signUp-checkbox{
+    position: absolute;
+    width: 52px;
+    height: 53px;
+    left: 1246px;
+    top: 823px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.35);
+}
+.signUp-checkbox-text{
+    /* אישור קבלת הודעות במייל */
+    position: absolute;
+    width: 418px;
+    height: 44px;
+    left: 809px;
+    top: 832px;
+
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 93.48%;
+    /* or 34px */
+
+    text-align: right;
+
+    color: rgba(0, 31, 70, 0.75);
+}
+.signUp-enterUser{
+    position: absolute;
+    width: 304px;
+    height: 84px;
+    left: 808px;
+    top: 920px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+    position: absolute;
+    width: 303px;
+    height: 71px;
+    left: 809px;
+    top: 931px;
+
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 93.48%;
+    /* or 67px */
+
+    text-align: center;
+
+    color: rgba(255, 44, 69, 0.4);
+}

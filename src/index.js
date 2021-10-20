@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from "react-redux"
+import { createStore, applyMiddleware } from "redux"
+import reducers from "./reducers";
+import thunk from "redux-thunk";
+import 'react-calendar/dist/Calendar.css';
+
+const store= createStore(reducers, applyMiddleware(thunk));
+
 
 ReactDOM.render(
+  <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
   <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+    </Provider>
+  </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

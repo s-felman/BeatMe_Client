@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "almoni-dl-aaa-400";
+  src: local("almoni-dl-aaa-400"),
+    url("../src/static/fonts/almoni-dl-aaa-400.woff") format("woff");
+  font-weight: normal;
+} 
+@font-face {
+  font-family: "almoni-dl-aaa-700";
+  src: local("almoni-dl-aaa-700"),
+    url("../src/static/fonts/almoni-dl-aaa-700.woff") format("woff");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "almoni-ultrabold-aaa";
+  src: local("almoni-ultrabold-aaa"),
+    url("../src/static/fonts/almoni-ultrabold-aaa.ttf") format("truetype");
+  font-weight: normal;
+}

@@ -1,0 +1,56 @@
+
+.MuiBox-root-2 {
+    /* margin: 8px; */
+    display: flex;
+    padding: 8px;
+    flex-wrap: wrap;
+}
+
+.enter{
+width: 176px;
+height: 49px;
+background: #FFFFFF;
+box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.22);
+border: 0vmax;
+font-family:almoni-dl-aaa-400;
+font-style: normal;
+font-weight: 800;
+font-size: 36px;
+line-height: 93.48%;
+/* or 34px */
+text-align: center;
+color: rgba(255, 44, 69, 0.4);
+}
+
+.title{
+position: relative;
+height: 1.9em;
+
+font-family:almoni-dl-aaa-400;
+font-style: normal;
+font-weight: 800;
+font-size: 48px;
+line-height: 84.48%;
+/* or 41px */
+
+text-align: center;
+
+color: rgba(0, 31, 70, 0.75);
+}
+.details1{
+    position: relative;
+height: 3em;
+font-family:almoni-dl-aaa-400;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 84.48%;
+/* or 20px */
+text-align: center;
+color: #001F46;
+}
+
+.box{
+    margin: 1em;
+    box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+}
