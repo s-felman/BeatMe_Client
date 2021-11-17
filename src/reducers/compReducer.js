@@ -2,7 +2,7 @@
 
  const initState = {
     competitions: [],
-    competitionActive: {
+    competitionActive: []
         // firstName: null,
         // lastName:  null,
         // userName:  null,
@@ -10,7 +10,7 @@
         // email: null,
         // password: null,
         // getEmail: null
-    }
+    
 }
 
 export const competitionsReducer = (state = initState, action) => {

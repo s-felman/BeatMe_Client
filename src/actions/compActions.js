@@ -1,7 +1,7 @@
 export const getAllCompAction = () => {
 
     return async (dispatch) => {
-        fetch(`http://localhost:3000/competitons/`).then((response) => {
+        fetch(`http://localhost:3000/competitions/`).then((response) => {
             return response.json();
         }).then((data) => {
             return dispatch({
@@ -12,29 +12,32 @@ export const getAllCompAction = () => {
     }
 }
 
-export const logoutAction = () => {
-    return {
-        type: "LOGIN",
-        payload: false
-    }
-}
-
-export const getUsersAction = () => {
+export const getCompByManagerAction = (managerId) => {
+    //const manager=JSON.stringify(managerId)
     return async (dispatch) => {
-        fetch(`http://localhost:3000/users/`).then((response) => {
+        const options = {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json"
+            },
+           
+        }
+        fetch(`http://localhost:3000/competitions/getByManager/${managerId}`, options )
+        .then((response) => {
             return response.json();
         }).then((data) => {
+            console.log("df", data)
             return dispatch({
-                type: "SET_USERS",
+                type: "SET_COMPETITION_ACTIVE",
                 payload: data
             })
         });
     }
 }
 
-export const getUserAction = (userID) => {
+export const createComp = (userID) => {
     return async (dispatch) => {
-        fetch(`http://localhost:3000/users/?userId=${userID}`).then((response) => {
+        fetch(`http://localhost:3000/competitions/${userID}`).then((response) => {
             return response.json();
         }).then((data) => {
             return dispatch({

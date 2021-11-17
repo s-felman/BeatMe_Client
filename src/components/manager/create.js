@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import "./create.css";
 import NavBar from "../general/navBar";
+import {getCompByManagerAction} from "../../actions/compActions"
 import {getUserAction} from "../../actions/usersActions"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import emailjs from 'emailjs-com';
@@ -50,10 +51,10 @@ const Create = (props) => {
       path: "/trivia"
 
     },
-    {
-      title: 'פרויקט משותף',
-      path: "/team"
-    },
+    // {
+    //   title: 'פרויקט משותף',
+    //   path: "/team"
+    // },
     {
 
       title: 'תחרות הצבעות',
@@ -71,16 +72,16 @@ const Create = (props) => {
     },
   ];
     const [value, setValue] = useState('/create');
-    const [cname, setCname] = useState('תחרות');
+    const [cname, setCname] = useState('');
     const [userList, setUserList] = useState([]);
     const [buttonSelected, setButtonSelected] = useState("");
     const [cnameError, setCNameError] = useState('');
     const [pathError, setPathError] = useState('');
     const [manager, setManager] = useState('');
-    
+    const [managerId, setManagerId]=useState('')
   useEffect(() => {
       setManager(props.user.userName);
-     
+      setManagerId(props.user._id); 
     });
 
     useEffect(() => { 
@@ -88,18 +89,15 @@ const Create = (props) => {
     },[cname]);
 
     function checkValidations(cname, value) {
-      if (cname === "" || cname==='תחרות') {
-        cnameErrorFucntion(cname);
-      }
-      if(value==='/create')
+        if(value==='/create')
         pathErrorFucntion(value)
-      else {
-
-
-      }
+        if (cname === '') 
+        cnameErrorFucntion(cname);
+    
     }
+
     function cnameErrorFucntion(text) {
-      if (text !== "" ) {
+      if (text !== '') {
         setCNameError("");
         return false;
       }
@@ -117,6 +115,9 @@ const Create = (props) => {
         setPathError("חובה לבחור סוג תחרות");
         return true;
       }
+    }
+    function func(managerId){
+      props.getCompByManagerAction(managerId)
     }
 
     const list = participants
@@ -175,7 +176,9 @@ const Create = (props) => {
             <input type="email" value={useremail} onChange={event => setUseremail(event.target.value)}></input><br />
             <button id="addUser" onClick={() => {
               user(username, useremail); alert("המשתמש נוסף בהצלחה");
-              setUsername(" "); setUseremail(" "); setShowResults(false); sendEmail()
+              setUsername(" "); setUseremail(" "); setShowResults(false); func(managerId);
+              sendEmail();
+              
             }} >הוספה</button>
           </div>
         )
@@ -196,9 +199,10 @@ const Create = (props) => {
       </div>
       <div className="create-props">
         <input type="text" placeholder="שם לתחרות"
-          id="name"
+          id="name" 
           onChange={event=> setCname(event.target.value)} className="competiton-name-input" ></input><br />
-        <span className='error'>{cnameError}</span><br />
+        <span className='error'>{cnameError}</span>
+        <div className="card-center">
         <div className="card-type-competition" >
           {images.map((image) => {
             return <button className={image.path === buttonSelected ? "create-button-selected" : "select-competiton-type"} 
@@ -206,23 +210,23 @@ const Create = (props) => {
               <h2 className="title-type">{image.title}</h2>
             </button>
           })}
-        </div>
+        </div></div>
         <span className='error'>{pathError}</span><br />
         <div className="create-buttons-div">
-          <button className="add-perticipant-button">העלאת קובץ אקסל</button>
-          <AddUser></AddUser>
+         <AddUser></AddUser>
         </div>
         <Link
           to={{
             pathname: `${value}/${cname}`,
             state: { cname: cname },
             compProps: {
-              managerName: manager,
+              managerId: managerId,
               name: cname, type: value, userList: userList
             }
           }} >
           <button className="continue-button" type="submit" onClick={() => { checkValidations(cname, value) }}>
-            המשך</button></Link>
+            המשך</button>
+            </Link>
       </div>
       <div className="create-profile">
         <img src={profile} className="profile-pic"></img>
@@ -232,7 +236,7 @@ const Create = (props) => {
           <button className="edit-profile-text">ערוך פרופיל</button>
         </Link>
         <label className="profile-participants-label">משתתפי התחרות</label>
-        <div className="profile-list">{list}</div>
+        <div className="profile-list">{props.competitions.usersList}</div>
       </div>
     </div>
   );
@@ -240,12 +244,12 @@ const Create = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user.userActive.user,
-    competitions: state.comp.competitions
+    user: state.user.userActive,
+    competitions: state.comp.competitionActive
   }
 }
 
-export default connect(mapStateToProps,{getUserAction})(Create);
+export default connect(mapStateToProps,{getUserAction, getCompByManagerAction})(Create);
 
 //https://dashboard.emailjs.com/admin/templates/hbl27zc
 //https://reactjs.org/docs/forms.html

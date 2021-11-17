@@ -4,7 +4,7 @@ import profile from "../../static/images/participant-profil.png"
 import "./participant.css";
 import {connect} from "react-redux";
 import { Link } from 'react-router-dom';
-import { getUserAction } from "../../actions/compActions";
+import { getUserAction } from "../../actions/usersActions";
 
 const Participant=(props)=>{
     useEffect(() => {
@@ -13,7 +13,7 @@ const Participant=(props)=>{
         if (props.isLogged===true && props.user.userName===null) {
             var u=JSON.parse(localStorage.getItem('user'));
             props.getUserAction(u._id)
-            localStorage.setItem("user", JSON.stringify(props.user));
+
         }
     })
 
@@ -26,7 +26,9 @@ const Participant=(props)=>{
                 <div className="participant-title">שלום {props.user.userName}</div>
                     <div className="participant-competitions">התחריות שלי</div>
                     <div className="participant-allCompetitions"></div>
-                    <div className="participant-profile">
+                  
+            </div>
+            <div className="participant-profile">
                     <img alt="profile-img" src={profile} className="participant-profile-pic"></img>
                     <label className="participant-profile-name">{props.user.userName}</label>
                     <label className="participant-profile-name-props">משתתף פעיל</label>
@@ -34,7 +36,6 @@ const Participant=(props)=>{
                         <button className="participant-edit-profile-text">ערוך פרופיל</button>
                     </Link>
                 </div>
-            </div>
         </div>    
     )
 }

@@ -1,3 +1,14 @@
+.participant-style{ 
+    display: grid;
+    grid-template-areas:
+    "nav nav nav"
+    "section section aside"
+    "section section aside";
+	 /* grid-template-rows: 33% 33% 33%;  */
+     grid-template-columns: 1fr 1fr 326px; 
+    height: 100%;
+    width: 100%;
+}
 .participant-style > div:nth-child(1) {
     grid-column-start: 1;
     grid-column-end: 5;
@@ -7,6 +18,9 @@
 }
 .participant-nav{
     grid-area: nav;
+}
+.participant-profile{
+    grid-area: aside;
 }
 .participant-allCompetitions{
     grid-area: allCompetitions;
@@ -18,7 +32,7 @@
     left: 495px;
     top: 204px;
 
-    font-family: Almoni Neue DL 4.0 AAA;
+    font-family: almoni-ultrabold-aaa;
     font-style: normal;
     font-weight: 800;
     font-size: 144px;
@@ -36,7 +50,7 @@
     left: 1217px;
     top: 364px;
 
-    font-family: Almoni Neue DL 4.0 AAA;
+    font-family: almoni-ultrabold-aaa;
     font-style: normal;
     font-weight: 800;
     font-size: 45px;
@@ -78,12 +92,12 @@
 }
 .participant-profile-name{
     /* position: absolute;
-    font-family: Almoni Neue DL 4.0 AAA;  */
+    font-family: almoni-ultrabold-aaa;  */
     width: 326px;
     height: 33px;
     left: 1594px;
     margin-top: 5px;
-    font-family: almoni-dl-aaa-400;
+    font-family: almoni-ultrabold-aaa;
     font-style: normal;
     font-weight: normal;
     font-size: 36px;
@@ -98,7 +112,7 @@
     height: 33px;
     left: 1594px;
     top: 501px;
-    font-family: Almoni Neue DL 4.0 AAA;
+    font-family: almoni-ultrabold-aaa;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -123,7 +137,7 @@
     left: 1594px;
     top: 531px;
 
-    font-family: Almoni Neue DL 4.0 AAA;
+    font-family: almoni-ultrabold-aaa;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;

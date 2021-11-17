@@ -18,17 +18,23 @@ const UserLogin = (props) => {
         if (props.error) {
             alert("שם משתמש או סיסמא שגויים")
         } else {
-            setUser(props.user);
+            setUser(props.user._id);
+
         }
     }, [props.user, props.error])
+
+    
 
     const req = () => {
         props.loginAction(username, password);        
         localStorage.setItem("user", JSON.stringify(props.user));
+        console.log(props.location.state==="create")
         if (props.location.state === "create")
-            setPath("/create")
+            setPath(`/create`)
+        else if  (props.location.state === "participant")
+            setPath(`/participant`)
         else
-            setPath("/participant")
+            setPath('/manager')
 
     }
 
@@ -44,7 +50,7 @@ const UserLogin = (props) => {
                 <input type="text" placeholder="שם משתמש\אימייל" className="insert-props" onChange={(e) => setUsername(e.target.value)} ></input>
                 <input type="password" placeholder="סיסמא" className="insert-props" onChange={(e) => setPassword(e.target.value)}></input>
 
-                <Link to={{ pathname: `${path}/${username}` }}>
+                <Link to={{ pathname: `${path}/${user}` ,state: { id:user}}}>
                     <button type="submit" className="button-login" onClick={req}>כניסה</button>
                 </Link>
 
@@ -56,7 +62,6 @@ const mapStateToProps = (state) => {
     return {
         user: state.user.userActive,
         competitions: state.comp.competitions,
-        error: state.user.loginError
     }
 }
 
