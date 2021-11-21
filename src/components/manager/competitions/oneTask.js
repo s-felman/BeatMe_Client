@@ -17,18 +17,21 @@ const options = [
 
 const OneTask=(props)=>{
     const [details, setDetails]= useState("");
-    const [date, setDate]=useState("");
+    const [date, setDate]=useState(new Date());
     const [target, setTarget]= useState("");
+    const [typeProps, setTypeProps] = useState([]);
     
-      const comp={
-        name: props.location.compProps.name,
-        manager: props.location.compProps.managerName,
-        type:  props.location.compProps.type,
-        userList:  props.location.compProps.userList,
-        details: details,
-        target: target,
-        targetDate: date
-      }
+    const comp = {
+      compName: props.location.compProps.name,
+      adminId: props.user._id,
+      compType: props.location.compProps.type,
+      usersList: props.location.compProps.userList,
+      details: details,
+      target: target,
+      targetDate: date,
+      typeProps: typeProps
+    }
+  
     
       const onchange = (data) => {
         setDetails(data)
@@ -39,7 +42,7 @@ const OneTask=(props)=>{
     }
 
     function createFunc(){
-      props.createComp(comp)
+      props.createComp( props.user._id , comp)
     }
         return(
         <div className="competitions-style">
@@ -47,7 +50,7 @@ const OneTask=(props)=>{
       <div className="competitions-details">
         <div className="comp-father-div">
           <h1  className="comp-header-secondpage">{props.location.compProps.name}</h1>
-          <div> <Link to={`/create/${props.user.userName}`}>  <button className="props-button">חזור</button></Link></div>
+          <div> <Link to={`/create/${props.user._id}`}>  <button className="props-button">חזור</button></Link></div>
             <CreateProps onchange={(e) => { onchange(e) }}></CreateProps>
             <div className="oneTask-target">
           <div className="comp-label-target">יעד סופי</div>

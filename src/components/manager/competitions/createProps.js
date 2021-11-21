@@ -19,6 +19,7 @@ const CreateProps = (props) => {
         console.log(data)
         setData(data)
     }
+
     useEffect(() => {
         if (img) {
             setUpload(<ImageUpload ontake={(e) => { onchange(e) }}></ImageUpload>);

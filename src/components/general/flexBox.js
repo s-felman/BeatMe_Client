@@ -11,13 +11,7 @@ import notebook from "../../static/images/notebook.png"
 import {getAllCompAction} from "../../actions/compActions";
 import { connect } from "react-redux";
 const FlexWrap=(props)=> {
-  // eslint-disable-next-line
-  const list = [
-    { image: [cycle], header: "אימון כושר", details: "הספק יומי של רכיבה" },
-    { image: [cake], header: "הגשה קולינרית", details: "?מי העוגה המנצחת" },
-    { image: [lab], header: "אתגרים במדע", details: "חידון מדעי ברמה גבוהה" },
-    { image: [macaroons], header: "צבע וטעם", details: "יצירת בר משותף בעבודת צוות מרחוק" },
-    { image: [notebook], header: "כתיבת מאמר", details: "כתיבת מאמרים עד לתאריך 03.08" },]
+  // eslint-disable-next-lin
 
     useEffect(()=>{
      props.getAllCompAction()
@@ -28,7 +22,7 @@ const FlexWrap=(props)=> {
       return (
         <div p={1}>
           <Card style={{ width: '18rem' }} className="box">
-            <Card.Img variant="top" src={"http://localhost:3000/" + p.image } />
+            <Card.Img className="flex-box-img" variant="top" src={"http://localhost:3000/" + p.image } />
             <Card.Body>
               <Card.Title className="title">{p.compName}</Card.Title>
               <Card.Text className="details1">

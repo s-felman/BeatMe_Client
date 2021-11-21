@@ -164,9 +164,14 @@ export const getUserAction = (userID) => {
         fetch(`http://localhost:3000/users/${userID}`).then((response)=> {
             return response.json();
         }).then((data)=> {
-            return dispatch({    
+
+                dispatch({    
                 type: "SET_USER_ACTIVE",
                 payload: data.user
+            })
+            dispatch({
+                type: "LOGIN",
+                payload: true
             })
         });
     }

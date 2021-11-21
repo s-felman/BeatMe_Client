@@ -24,12 +24,12 @@ const Participant=(props)=>{
             </div>
             <div className="participant-props">
                 <div className="participant-title">שלום {props.user.userName}</div>
-                    <div className="participant-competitions">התחריות שלי</div>
-                    <div className="participant-allCompetitions"></div>
+                    <div className="participant-competitions">התחרויות שלי</div>
+                    <div className="participant-allCompetitions">כרגע אין תחרויות שאתה משתתף בהן:(</div>
                   
             </div>
             <div className="participant-profile">
-                    <img alt="profile-img" src={profile} className="participant-profile-pic"></img>
+                    <img alt="profile-img" src={"http://localhost:3000/"+props.user.image} className="profile-pic"></img>
                     <label className="participant-profile-name">{props.user.userName}</label>
                     <label className="participant-profile-name-props">משתתף פעיל</label>
                     <Link to="/updateUser">

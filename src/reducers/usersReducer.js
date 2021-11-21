@@ -27,7 +27,8 @@ export const usersReducer = (state = initState, action) => {
         case "SET_USERS":
             state = { ...state, users: action.payload }
             break;
-        case "SET_USER_ACTIVE":       
+        case "SET_USER_ACTIVE": 
+             window.localStorage.setItem('user', JSON.stringify(action.payload) );      
             state = { ...state, userActive: action.payload }
             break;
         case "LOGIN_ERROR":

@@ -11,13 +11,19 @@ import NavBar from "../general/navBar";
 const AllComp = (props) => {
     const [managerId, setManagerId] = useState(props.location.state.id);
     const [compList, setCompList] = useState([])
-
+    const [nocompList, setNoCompList] = useState("")
     useEffect(() => {
         if (props.isLogged === true && props.user.userName === null) {
             var u = JSON.parse(localStorage.getItem('user'));
             props.getUserAction(u._id)
             setManagerId(u._id);
             props.getCompByManagerAction(managerId)
+        }
+        if(compList.length===0){
+            setNoCompList("כרגע אין תחרויות שאתה מנהל:(")
+        }
+        else{
+            setNoCompList("")
         }
 
     })
@@ -59,7 +65,8 @@ const AllComp = (props) => {
             <div className="allCompetitions-details">
                 <div className="allCompetitions-header">שלום {props.user.userName}</div>
                 <div className="allCompetitions-header2 ">התחרויות שלי</div>
-                <div className="allCompetition-cards">{competitionslist}</div>
+                <div className="allCompetition-cards">{competitionslist}</div> 
+                <span className="no-competitions">{nocompList}</span>
                 <Link to={{ pathname:`/create/${props.user.userName}`, state: { to: 'create' } }}>
                         <button className="allCompetitions-card-button"> יצירת תחרות נוספת
                         </button>
@@ -67,7 +74,7 @@ const AllComp = (props) => {
             </div>
 
             <div className="create-profile">
-                <img src={profile} className="profile-pic"></img>
+                <img src={"http://localhost:3000/"+props.user.image} className="profile-pic"></img>
                 <label className="profile-name">{props.user.userName}</label>
                 <label className="profile-name-props">מנהל התחרות</label>
                 <Link to="/updateUser">

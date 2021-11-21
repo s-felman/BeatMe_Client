@@ -103,10 +103,11 @@ class ImageUpload extends React.Component {
     onDrop(picture) {
         this.setState({
             pictures: this.state.pictures.concat(picture),
+            
         });
         console.log(this.state.pictures)
     }
-    handleChange = event => {
+    handleChange = () => {
         this.props.ontake(this.state.pictures);
     }
  

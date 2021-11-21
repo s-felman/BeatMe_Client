@@ -15,18 +15,22 @@ const Votes = (props) => {
   const [target, setTarget] = useState("");
   const [img, setImg] = useState(false);
   const [upload, setUpload] = useState()
+  const [typeProps, setTypeProps] = useState([]);
+  const [itemImg, setItemImg]= useState('')
+  const [itemName, setItemName]= useState('')
+  const [itemDetails, setItemDetails]= useState('')
 
-  const comp =
-  {
-    name: props.location.compProps.name,
-    adminId: props.location.compProps.managerId,
+  const comp = {
+    compName: props.location.compProps.name,
+    adminId: props.user._id,
     compType: props.location.compProps.type,
-    userList: props.location.compProps.userList,
+    usersList: props.location.compProps.userList,
     details: details,
     target: target,
-    targetDate: date
-
+    targetDate: date,
+    typeProps: typeProps
   }
+
   useEffect(() => {
     if (img) {
         setUpload(<ImageUpload ontake={(e) => { onchange(e) }}></ImageUpload>);
@@ -43,9 +47,14 @@ const Votes = (props) => {
     setDetails(data)
   }
 
+  function addQ(){
+    const qe = { itemName: itemName, itemDetails: itemDetails, itemImg: itemImg };
+    setTypeProps([...typeProps, qe]);
+    localStorage.setItem("compName", " ")
+  }
 
   function createFunc() {
-    props.createComp(comp)
+    props.createComp(props.user._id,comp)
   }
   return (
     <div className="competitions-style">
@@ -53,12 +62,12 @@ const Votes = (props) => {
       <div className="competitions-details">
         <div className="comp-father-div">
           <h1 className="comp-header-secondpage">{props.location.compProps.name}</h1>
-          <div> <Link to={`/create/${props.user.userName}`}>  <button className="props-button">חזור</button></Link></div>
+          <div> <Link to={`/create/${props.user._id}`}>  <button className="props-button">חזור</button></Link></div>
           <div className="competitions-list">
         <div className="competitions-list-header">פריטים קיימים להצבעה</div>
-  <div className="competitions-list-qes">שאלה 1</div>
-        <div className="competitions-list-qes">שאלה 1</div>
-        <div className="competitions-list-qes">שאלה 1</div>
+  <div className="competitions-list-qes">פריט 1</div>
+        <div className="competitions-list-qes">פריט 2</div>
+        <div className="competitions-list-qes">פריט 3</div>
       </div>
           <CreateProps onchange={(e) => { onchange(e) }}></CreateProps>
         
@@ -70,10 +79,10 @@ const Votes = (props) => {
             <button className="votes-add-img" onClick={() => { !img ? setImg(true) : setImg(false) }} >העלה תמונת מוצר</button>
            
             <div className="votes-input-div">
-              <input className="votes-input" placeholder="שם מוצר"></input>
-              <input className="votes-input"  placeholder="פירוט"></input>
+              <input className="votes-input" placeholder="שם מוצר" onChange={event => setItemName(event.target.value)}></input>
+              <input className="votes-input"  placeholder="פירוט" onChange={event => setItemDetails(event.target.value)}></input>
             </div></div>
-            <button className="votes-button">הוספה</button>
+            <button className="votes-button" onClick={()=>{addQ()}}>הוספה</button>
             </div>
              <div className="comp-uploud">{upload}</div>
           </div>

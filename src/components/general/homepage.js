@@ -53,7 +53,7 @@ const HomePage = (props) => {
                         </button>
                     </Link>
                 </div>
-                <div className="titles">התחרויות</div>
+                <div className="titles" id="compList">התחרויות</div>
 
 
                 <div className="comptitions-to-show">

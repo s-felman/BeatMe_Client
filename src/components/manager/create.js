@@ -23,28 +23,28 @@ init("user_qMw5HuferY6tdn7CfelD1");
 
 const Create = (props) => {
 
-    const participants = [
-      {
-        pic: [profile1],
-        name: "אייל ירום"
-      },
-      {
-        pic: [profile2],
-        name: "משה כהן"
-      },
-      {
-        pic: [profile3],
-        name: "דוד כגן"
-      },
-      {
-        pic: [profile4],
-        name: "עוזי מנדלוביץ"
-      },
-      {
-        pic: [profile5],
-        name: "אורן לב"
-      },
-    ];
+    // const participants = [
+    //   {
+    //     pic: [profile1],
+    //     name: "אייל ירום"
+    //   },
+    //   {
+    //     pic: [profile2],
+    //     name: "משה כהן"
+    //   },
+    //   {
+    //     pic: [profile3],
+    //     name: "דוד כגן"
+    //   },
+    //   {
+    //     pic: [profile4],
+    //     name: "עוזי מנדלוביץ"
+    //   },
+    //   {
+    //     pic: [profile5],
+    //     name: "אורן לב"
+    //   },
+    // ];
   const images = [
     {
       title: 'חידון',
@@ -79,10 +79,21 @@ const Create = (props) => {
     const [pathError, setPathError] = useState('');
     const [manager, setManager] = useState('');
     const [managerId, setManagerId]=useState('')
+    const [placeholder_name, setPlaceholder_name]=useState('שם לתחרות')
   useEffect(() => {
+      
+      if(props.match.params.id!=null&& props.user.userName===null){
+        props.getUserAction(props.match.params.id)
+      }
       setManager(props.user.userName);
-      setManagerId(props.user._id); 
+      setManagerId(props.user._id)
+
     });
+
+  useEffect(()=>{
+      // setPlaceholder_name(localStorage.getItem('compName')); 
+      setCname(localStorage.getItem('compName'))
+  },[])
 
     useEffect(() => { 
       cnameErrorFucntion(cname);
@@ -120,15 +131,15 @@ const Create = (props) => {
       props.getCompByManagerAction(managerId)
     }
 
-    const list = participants
-      .map(p => {
-        return (
-          <div className="profile-participant-card">
-            <label className="profile-participant-name">{p.name}</label>
-            <img className="profile-participant-pic" src={p.pic}></img>
-          </div>
-        )
-      })
+    // const list = participants
+    //   .map(p => {
+    //     return (
+    //       <div className="profile-participant-card">
+    //         <label className="profile-participant-name">{p.name}</label>
+    //         <img className="profile-participant-pic" src={p.pic}></img>
+    //       </div>
+    //     )
+    //   })
 
 
     const AddUser = (props) => {
@@ -196,11 +207,11 @@ const Create = (props) => {
     <div className="create-style">
       <div className="create-nav">
         <NavBar ></NavBar>
-      </div>
+      </div> 
       <div className="create-props">
-        <input type="text" placeholder="שם לתחרות"
-          id="name" 
-          onChange={event=> setCname(event.target.value)} className="competiton-name-input" ></input><br />
+        <input type="text" placeholder={placeholder_name}
+          id="name" value={cname}
+          onChange={event=> {setCname(event.target.value); localStorage.setItem("compName",event.target.value)}} className="competiton-name-input" ></input><br />
         <span className='error'>{cnameError}</span>
         <div className="card-center">
         <div className="card-type-competition" >
@@ -218,7 +229,7 @@ const Create = (props) => {
         <Link
           to={{
             pathname: `${value}/${cname}`,
-            state: { cname: cname },
+            state: { cname: cname, type:value },
             compProps: {
               managerId: managerId,
               name: cname, type: value, userList: userList
@@ -229,7 +240,7 @@ const Create = (props) => {
             </Link>
       </div>
       <div className="create-profile">
-        <img src={profile} className="profile-pic"></img>
+        <img src={"http://localhost:3000/"+props.user.image} className="profile-pic"></img>
         <label className="profile-name">{props.user.userName}</label>
         <label className="profile-name-props">מנהל התחרות</label>
         <Link to="/updateUser">
@@ -243,6 +254,7 @@ const Create = (props) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log("create state", state)
   return {
     user: state.user.userActive,
     competitions: state.comp.competitionActive

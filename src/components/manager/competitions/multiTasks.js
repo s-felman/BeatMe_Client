@@ -9,20 +9,22 @@ import NavBar from "../../general/navBar";
 import SelectDate from "../../general/selectDate";
 
 const MultiTasks = (props) => {
-  const [details, setDetails] = useState("");
-  const [date, setDate] = useState("");
+  const [details, setDetails] = useState(""); 
+  const [target, setTarget] = useState("");
+  const [typeProps, setTypeProps] = useState([]);
   const [value, setValue] = useState(new Date());
   const [dateDiv, setDateDiv] = useState(false)
   const [data, setData] = useState();
-  const [date2, setDate2] = useState("");
+  const [taskTarget, setTaskTarget] = useState('');
   const [value2, setValue2] = useState(new Date());
   const [dateDiv2, setDateDiv2] = useState(false)
   const [data2, setData2] = useState();
 
   useEffect(() => {
     setValue(value);
-    console.log("ddd", value)
+    console.log(comp)
   })
+
   useEffect(() => {
     if (dateDiv) {
       setData(<Calendar className="comp-calander" onChange={onChange} value={value} calendarType="Hebrew" ></Calendar>);
@@ -38,16 +40,15 @@ const MultiTasks = (props) => {
       setData2(null);
   }, [dateDiv2])
 
-  const [target, setTarget] = useState("");
-
   const comp = {
-    name: props.location.compProps.name,
-    manager: props.location.compProps.managerName,
-    type: props.location.compProps.type,
-    userList: props.location.compProps.userList,
+    compName: props.location.compProps.name,
+    adminId: props.user._id,
+    compType: props.location.compProps.type,
+    usersList: props.location.compProps.userList,
     details: details,
     target: target,
-    targetDate: date
+    targetDate: value,
+    typeProps: typeProps
   }
 
 
@@ -66,31 +67,42 @@ const MultiTasks = (props) => {
   Moment.locale('en');
 
   function createFunc() {
-    props.createComp(comp)
+    props.createComp(props.user._id,comp)
   }
 
+  function addTask(){
+    const task = { date: value2, details: taskTarget };
+          setTypeProps([...typeProps, task]);
+          setValue2(new Date())
+          setTaskTarget('')
+          localStorage.setItem("compName", "")
+  }
   return (<div className="competitions-style">
     <NavBar className="competitions-nav"></NavBar>
 
     <div className="competitions-details">
       <div className="comp-father-div">
         <h1 className="comp-header-secondpage">{props.location.compProps.name}</h1>
-        <div> <Link to={`/create/${props.user.userName}`}>  <button className="props-button">חזור</button></Link></div>
+        <div> <Link to={`/create/${props.user._id}`}>  <button className="props-button">חזור</button></Link></div>
         <CreateProps onchange={(e) => { onchange(e) }}></CreateProps>
         <div className="competitions-target">
           <div className="comp-label-target">יעד סופי</div>
-          <div className="competitions-target-details-date" placeholder="תאריך" onChange={event => setDate(event.target.value)}> {Moment(value).format('DD-MM-yyyy')}
+          <div className="competitions-target-details-date" > {Moment(value).format('DD-MM-yyyy')}
             <button className="search-icon" onClick={() => { !dateDiv ? setDateDiv(true) : setDateDiv(false) }}></button> </div>
-          <div>{data}</div>
-        </div>
+            <br /> <div>{data}</div><br />
+        </div >
         <input className="competitions-target-details" placeholder="פירוט" onChange={event => setTarget(event.target.value)}></input>
+        <div className="votes-add-div">
         <div className="competitions-target">
           <div className="comp-label-target">משימת אמצע</div>
-          <div className="competitions-target-details-date" placeholder="תאריך" onChange2={event => setDate2(event.target.value)}> {Moment(value2).format('DD-MM-yyyy')}
-            <button className="search-icon" onClick={() => { !dateDiv2 ? setDateDiv2(true) : setDateDiv2(false) }}></button>
+          <div className="competitions-target-details-date"> {Moment(value2).format('DD-MM-yyyy')}
+            <button className="search-icon" onClick={() => { !dateDiv2 ? setDateDiv2(true) : setDateDiv2(false) }}></button><br />
           </div><br />
-          <div>{data2}</div></div>
-        <textarea className="competitions-details-next" placeholder="פירוט משימת אמצע"></textarea>
+          <div></div>
+          <div>{data2}</div>
+          </div>
+        <textarea className="competitions-details-next" placeholder="פירוט משימת אמצע" onChange={event => setTaskTarget(event.target.value)}></textarea> 
+        <button className="votes-button" onClick={()=>{addTask()}}>הגש</button></div>
         <div className="comp-center-button">
           <button className="comp-continue-button" onClick={() => { createFunc() }}>התחל תחרות</button></div>
       </div></div>
@@ -100,7 +112,6 @@ const mapStateToProps = (state) => {
   return {
     user: state.user.userActive,
     competitions: state.comp.competitions,
-    error: state.user.loginError
   }
 }
 

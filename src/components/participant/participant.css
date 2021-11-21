@@ -23,15 +23,14 @@
     grid-area: aside;
 }
 .participant-allCompetitions{
-    grid-area: allCompetitions;
+ font-family: almoni-dl-aaa-400;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 93.48%;
+
 }
 .participant-title{
-    position: absolute;
-    width: 634px;
-    height: 103px;
-    left: 495px;
-    top: 204px;
-
     font-family: almoni-ultrabold-aaa;
     font-style: normal;
     font-weight: 800;
@@ -44,22 +43,17 @@
 
 .participant-competitions{
      /* התחרויות שלי */
-    position: absolute;
-    width: 287px;
-    height: 33px;
-    left: 1217px;
-    top: 364px;
 
-    font-family: almoni-ultrabold-aaa;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 45px;
-    line-height: 93.48%;
-    /* or 42px */
-
-    text-align: right;
-
-    color: rgba(0, 31, 70, 0.8);
+     position: relative;
+     width: auto;
+     padding: 20px;
+     font-family: almoni-ultrabold-aaa;
+     font-style: normal;
+     font-weight: 800;
+     font-size: 45px;
+     line-height: 93.48%;
+     text-align: right;
+     color: #001F46;
 }
 .participant-profile{
     /* position: absolute;
@@ -79,23 +73,12 @@
 
     /* grid-area: aside;    */
 }
-.participant-profile-pic{
-    /* position: absolute;
-    width: 231px;
-    height: 248px;
-    left: 1642px;
-    top: 220px; */
-    width: 244px;
-    height: 244px;
-    margin-top: 100px;
-/* background: url(פרופיל משתמש 2.png); */
-}
+
 .participant-profile-name{
     /* position: absolute;
     font-family: almoni-ultrabold-aaa;  */
     width: 326px;
     height: 33px;
-    left: 1594px;
     margin-top: 5px;
     font-family: almoni-ultrabold-aaa;
     font-style: normal;
@@ -107,19 +90,6 @@
     color: #001F46;
 }
 .participant-profile-name-props{
-    /* position: absolute;
-    width: 326px;
-    height: 33px;
-    left: 1594px;
-    top: 501px;
-    font-family: almoni-ultrabold-aaa;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 93.48%;
-    or 22px
-    text-align: center;
-    color: #FF2C45; */
     width: 326px;
     height: 33px;
     margin-top: 10px;
@@ -131,20 +101,7 @@
     color: #FF2C45;
 }
 .participant-edit-profile-text{
-    /* position: absolute;
-    width: 326px;
-    height: 33px;
-    left: 1594px;
-    top: 531px;
 
-    font-family: almoni-ultrabold-aaa;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 93.48%;
-    or 11px
-    text-align: center;
-    color: #001F46; */
     width: 326px;
     height: 33px;
     margin-top: 8px;

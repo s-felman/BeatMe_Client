@@ -43,14 +43,14 @@ function NavBar(props) {
       <Link to={{ pathname: `${toLogin}`, state: { to: 'participant' } }} >
         <button >{isLogged}</button>
       </Link>
-      <Link to="/" >
+      <a href="/" >
         <button onClick={() => { logoutAction(); }} > {logout} </button>
-      </Link>
+      </a>
       {/* <input className="search"></input>
       <button className="search-icon"></button> */}
       <a href="/create" className="links">צור תחרות</a>
       <a href="/create" className="links">המנצחים</a>
-      <a href="/create" className="links">התחרויות</a>
+      <a href="compList" className="links">התחרויות</a>
       <a href="/" className="logo"><img alt="BeatMe_logo" src={logo}></img></a>
 
     </div>
