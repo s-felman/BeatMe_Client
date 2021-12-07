@@ -3,7 +3,7 @@
     /* margin: 8px; */
     display: flex;
     padding: 8px;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
 }
 
 .enter{

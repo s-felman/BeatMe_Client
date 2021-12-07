@@ -15,13 +15,15 @@ import Trivia from "./components/manager/competitions/trivia";
 import MultiTasks from "./components/manager/competitions/multiTasks";
 import Team from "./components/manager/competitions/team";
 import UpdateUser from "./components/users/updateUser";
-
+import LiveTrivia from "./components/manager/live competitions/trivia"
 
 function App() {
+
   useEffect(()=>{
-    // localStorage.setItem('isLogged', false)
-    // localStorage.setItem('user', undefined)
-  },[])
+    // localStorage.setItem('type', "")
+    // localStorage.setItem('compName', "")
+ },[])
+
   return (
     <div className="App">
   <Switch>
@@ -39,6 +41,7 @@ function App() {
     <Route path="/trivia/:cname" component={Trivia} />
     <Route path="/votes/:cname" component={Votes} />
     <Route path="/updateUser" component={UpdateUser} />
+    <Route path="/livetrivia/:id" component={LiveTrivia} />
   </Switch>
 
     </div>

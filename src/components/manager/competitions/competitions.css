@@ -1,3 +1,6 @@
+icon{
+  width: 2em;
+}
 .competitions-style{ 
   display: grid;
   grid-template-areas:
@@ -28,7 +31,7 @@
 
 .comp-father-div{
   width: fit-content;
- text-align: -webkit-right;
+ text-align: -webkit-center;
 }
 .fileContainer {
   width: 50%;  
@@ -118,8 +121,8 @@ border: 3px solid rgba(0, 31, 70, 0.7);
   justify-content: space-between;
   flex-direction: row-reverse;
   width: auto;
-text-align: center;
-margin-top: 30px;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .comp-calander{
@@ -135,7 +138,16 @@ margin-top: 30px;
       right: 8px;
 
 }
-
+.competition-end-target{
+  text-align: -webkit-center;
+  display: flex;
+  flex-direction: row-reverse;
+  width: fit-content;
+  justify-content: flex-end;
+  align-content: space-between;
+  align-items: baseline;
+  flex-wrap: nowrap
+}
 .competitions-details-next{
   width: 675px;
 height: 130px; 
@@ -204,10 +216,10 @@ color: rgba(0, 31, 70, 0.7);
 
   .trivia-radio-button{
     color: rgba(255, 44, 69, 0.7);
-    width: 40px;
-height: 40px;
-background: #FFFFFF;
-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.19);
+    width: 60px;
+    height: 56px;
+    background: #FFFFFF;
+    /* box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.19); */
   }
 
 .trivia-radios-button{
@@ -230,11 +242,12 @@ color: #001F46;
 .competitions-list{
   position: absolute;
 width: 326px;
-height: auto;
+height:640px;
 right: 0px;
 padding-top: 30px;
 padding-bottom: 50px;
-display: flex;
+overflow-y: auto;
+/* display: flex; */
 flex-direction: column;
 flex-wrap: wrap;
 align-content: space-around;
@@ -256,7 +269,7 @@ color: rgba(255, 44, 69, 0.4);
 }
 .competitions-list-qes{
   width: 256px;
-  height: 61px;
+  height: auto;
   margin: 3px;
   font-family: Almoni Neue DL 4.0 AAA;
 font-style: normal;
@@ -269,19 +282,46 @@ color: rgba(0, 31, 70, 0.45);
   background: #FFFFFF;
   box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
 }
+.competitions-target-m-details{
+width: 321px;
+height: 45px;
+margin: 2px;
+background: rgba(255, 255, 255, 0.43);
+border: 3px solid rgba(0, 31, 70, 0.7);
+font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 93.48%;
+text-align: right;
+color: rgba(0, 31, 70, 0.5);
+}
+
+.mt-add-div{
+  width: 702px;
+  height: 258px;
+  text-align: center;
+  margin-right: 266px;
+  margin-top: 25px;
+  display: flex;
+  background: #FFFFFF;
+  flex-direction: column;
+  align-items: center;
+}
 
 .votes-add-div{
-  width: fit-content;
+  width: 677px;
   height: 277px;
-  padding: 30px;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  margin-top: 25px;
   display: flex;
-     flex-direction: column;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
-background: #FFFFFF;
-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+  background: #FFFFFF;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
+
 
 .votes-add-img{
   font-family: Almoni Neue DL 4.0 AAA;
@@ -332,6 +372,7 @@ border: 3px solid rgba(0, 31, 70, 0.7);
 .votes-button{
   width: 126px;
 height: 49px;
+margin: 6px;
 background: #FFFFFF;
 box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.19);
 font-family: Almoni Neue DL 4.0 AAA;
@@ -351,3 +392,72 @@ color: rgba(255, 44, 69, 0.47);
   text-align: center;
   margin-top: 30px;
 }
+
+.votes-list-img{
+  width: 122px;
+height: 122px;
+left: 1763px;
+background-color: tomato;
+}
+ .votes-list-name{
+   text-align:center;
+   width: 122px;
+   height: 122px;
+   display: flex;
+ }
+.votes-list-item{
+  font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: 800;
+font-size: 36px;
+line-height: 93.48%;
+text-align: center;
+color: rgba(0, 31, 70, 0.45);
+}
+
+.votes-list-button{
+
+width: 39px;
+height: 20px;
+margin: 5px;
+background: #FFFFFF;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: 800;
+font-size: 14px;
+line-height: 93.48%;
+text-align: center;
+color: rgba(255, 44, 69, 0.47);
+}
+
+.votes-list{
+  width: 256px;
+  height: auto;
+  margin: 3px;
+  font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: 800;
+font-size: 36px;
+line-height: 93.48%;
+/* or 34px */
+text-align: center;
+color: rgba(0, 31, 70, 0.45);
+  background: #FFFFFF;
+  box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+}
+.mt-list-div{
+  width: 256px;
+  height: auto;
+  margin: 3px;
+  font-family: Almoni Neue DL 4.0 AAA;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 93.48%;
+  text-align: center;
+  color: rgba(0, 31, 70, 0.45);
+  background: #FFFFFF;
+  box-shadow:  0px 0px 14px 1px rgb(0 0 0 / 19%);
+}
+

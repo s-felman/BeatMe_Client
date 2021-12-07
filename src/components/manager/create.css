@@ -7,7 +7,7 @@ width: 304px;
 height: 84px;
 background: #FFFFFF;
 margin-top: 30px;
-margin-bottom: 70px;
+margin-bottom: 55px;
 box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19); 
 font-family: almoni-ultrabold-aaa ;
 font-style: normal;
@@ -43,7 +43,7 @@ color: rgba(255, 44, 69, 0.4);
 .create-profile{
     grid-area: aside;   
     width: 326px;
-    height: 969px;
+    height: auto;
     top: 111px;
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
@@ -223,7 +223,7 @@ color: rgba(0, 31, 70, 0.5);
     font-style: almoni-ultrabold-aaa;
 text-align: center;
     top: 358px;
-    margin-top: 15px;
+    margin: 10px;
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
@@ -233,5 +233,49 @@ text-align: center;
 
 .search-results{
 
-    background-color: white;
+    position: relative;
+width: 656px;
+height: 394px;
+background: #FFFFFF;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.search-input{
+    width: 369px;
+height: 51px;
+background: rgba(255, 255, 255, 0.43);
+border: 3px solid rgba(0, 31, 70, 0.7);
+font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 93.48%;
+text-align: center;
+
+color: rgba(0, 31, 70, 0.5);
+
+}
+
+.search-button{
+    width: 232px;
+height: 64px;
+left: 212px;
+top: 304px;
+
+background: #FFFFFF;
+box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+    width: 177px;
+    height: 41px;
+    left: 240px;
+    top: 315px;
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 93.48%;
+    text-align: center; 
+    color: rgba(255, 44, 69, 0.47);
 }

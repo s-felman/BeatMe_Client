@@ -9,9 +9,7 @@ import "./allCompetitions.css"
 import NavBar from "../general/navBar";
 
 const AllComp = (props) => {
-    const [managerId, setManagerId] = useState(props.location.state.id);
-    const [compList, setCompList] = useState([])
-    const [nocompList, setNoCompList] = useState("")
+   
     useEffect(() => {
         if (props.isLogged === true && props.user.userName === null) {
             var u = JSON.parse(localStorage.getItem('user'));
@@ -27,6 +25,10 @@ const AllComp = (props) => {
         }
 
     })
+    const [managerId, setManagerId] = useState(props.user._id);
+    const [compList, setCompList] = useState([])
+    const [nocompList, setNoCompList] = useState("")
+    
     useEffect(() => {
         if (props.competitions !== null && props.competitions !== undefined) {
             setCompList(props.competitions)
@@ -50,7 +52,9 @@ const AllComp = (props) => {
         return (
             
             <Card  className="allCompetition-card" >
-            <Card.Img className="allCompetition-card-img" src={"http://localhost:3000/" + p.image } />
+                <div className="card-out-div">
+            <Card.Img variant="top" className="allCompetition-card-img" src={"http://localhost:3000/" + p.image } />
+              </div>
               <Card.Title className="allCompetition-card-header">{p.compName}</Card.Title>
               <Card.Text className="allCompetition-card-details">
                 {p.details}
@@ -67,7 +71,7 @@ const AllComp = (props) => {
                 <div className="allCompetitions-header2 ">התחרויות שלי</div>
                 <div className="allCompetition-cards">{competitionslist}</div> 
                 <span className="no-competitions">{nocompList}</span>
-                <Link to={{ pathname:`/create/${props.user.userName}`, state: { to: 'create' } }}>
+                <Link to={{ pathname:`/create/${props.user._id}`, state: { to: 'create' } }}>
                         <button className="allCompetitions-card-button"> יצירת תחרות נוספת
                         </button>
                     </Link>

@@ -14,6 +14,7 @@ const store= createStore(reducers, applyMiddleware(thunk));
 
 
 ReactDOM.render(
+  
   <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
   <React.StrictMode>
   <Provider store={store}>

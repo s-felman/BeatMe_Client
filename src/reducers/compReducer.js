@@ -2,14 +2,16 @@
 
  const initState = {
     competitions: [],
-    competitionActive: []
-        // firstName: null,
-        // lastName:  null,
-        // userName:  null,
-        // phone: null,
-        // email: null,
-        // password: null,
-        // getEmail: null
+    competitionActive:{
+        compName: null,
+        adminId: null,
+        compType: null,
+        usersList: null,
+        details: null,
+        target: null,
+        targetDate: null,
+        typeProps: null
+    }
     
 }
 

@@ -23,28 +23,6 @@ init("user_qMw5HuferY6tdn7CfelD1");
 
 const Create = (props) => {
 
-    // const participants = [
-    //   {
-    //     pic: [profile1],
-    //     name: "אייל ירום"
-    //   },
-    //   {
-    //     pic: [profile2],
-    //     name: "משה כהן"
-    //   },
-    //   {
-    //     pic: [profile3],
-    //     name: "דוד כגן"
-    //   },
-    //   {
-    //     pic: [profile4],
-    //     name: "עוזי מנדלוביץ"
-    //   },
-    //   {
-    //     pic: [profile5],
-    //     name: "אורן לב"
-    //   },
-    // ];
   const images = [
     {
       title: 'חידון',
@@ -91,7 +69,8 @@ const Create = (props) => {
     });
 
   useEffect(()=>{
-      // setPlaceholder_name(localStorage.getItem('compName')); 
+      setButtonSelected(localStorage.getItem('type'))
+      setValue(localStorage.getItem('type')) 
       setCname(localStorage.getItem('compName'))
   },[])
 
@@ -100,6 +79,12 @@ const Create = (props) => {
     },[cname]);
 
     function checkValidations(cname, value) {
+      localStorage.setItem("usersList", JSON.stringify(userList))
+      if(value!=='/create'&& cname!=='')
+        {
+          localStorage.setItem("type", value)
+          window.location.replace(`${value}/${cname}`)
+        }
         if(value==='/create')
         pathErrorFucntion(value)
         if (cname === '') 
@@ -131,15 +116,16 @@ const Create = (props) => {
       props.getCompByManagerAction(managerId)
     }
 
-    // const list = participants
-    //   .map(p => {
-    //     return (
-    //       <div className="profile-participant-card">
-    //         <label className="profile-participant-name">{p.name}</label>
-    //         <img className="profile-participant-pic" src={p.pic}></img>
-    //       </div>
-    //     )
-    //   })
+
+    const list = userList
+      .map(p => {
+        return (
+          <div className="profile-participant-card">
+            <label className="profile-participant-name">{p.userName}</label>
+            {/* <img className="profile-participant-pic" src={p.pic}></img> */}
+          </div>
+        )
+      })
 
 
     const AddUser = (props) => {
@@ -147,7 +133,10 @@ const Create = (props) => {
 
 
       const onClick = () => {
+        if(!showResults)
         setShowResults(true);
+        else
+        setShowResults(false)
       }
 
       const Results =(props) => {
@@ -161,7 +150,6 @@ const Create = (props) => {
           const u = { userName: userName, userEmail: userEmail };
           setUserList([...userList, u]);
 
-          //props.toAddUserCallback(userList);
         }
 
         const sendEmail = () => {
@@ -181,12 +169,10 @@ const Create = (props) => {
         }
         return (
           <div id="results" className="search-results">
-            <label>שם משתמש</label>
-            <input type="text" value={username} onChange={event => setUsername(event.target.value)} ></input><br />
-            <label>כתובת מייל</label>
-            <input type="email" value={useremail} onChange={event => setUseremail(event.target.value)}></input><br />
-            <button id="addUser" onClick={() => {
-              user(username, useremail); alert("המשתמש נוסף בהצלחה");
+            <input className="search-input" placeholder="שם משתתף" type="text" value={username} onChange={event => setUsername(event.target.value)} ></input><br />
+            <input  className="search-input" placeholder="כתובת מייל" type="email" value={useremail} onChange={event => setUseremail(event.target.value)}></input><br />
+            <button id="addUser" className="search-button" onClick={() => {
+              user(username, useremail); alert("המשתתף נוסף בהצלחה וקיבל זימון למייל");
               setUsername(" "); setUseremail(" "); setShowResults(false); func(managerId);
               sendEmail();
               
@@ -196,7 +182,7 @@ const Create = (props) => {
       }
       return (
         <div >
-          <input className="add-perticipant-button" type="submit" value="הוספת משתמש" onClick={onClick} />
+          <input className="add-perticipant-button" type="submit" value="הוספת משתתף" onClick={onClick} />
           {showResults ? <Results cname={props.cname} /> : null}
         </div>
       )
@@ -226,18 +212,10 @@ const Create = (props) => {
         <div className="create-buttons-div">
          <AddUser></AddUser>
         </div>
-        <Link
-          to={{
-            pathname: `${value}/${cname}`,
-            state: { cname: cname, type:value },
-            compProps: {
-              managerId: managerId,
-              name: cname, type: value, userList: userList
-            }
-          }} >
+
           <button className="continue-button" type="submit" onClick={() => { checkValidations(cname, value) }}>
             המשך</button>
-            </Link>
+
       </div>
       <div className="create-profile">
         <img src={"http://localhost:3000/"+props.user.image} className="profile-pic"></img>
@@ -247,7 +225,7 @@ const Create = (props) => {
           <button className="edit-profile-text">ערוך פרופיל</button>
         </Link>
         <label className="profile-participants-label">משתתפי התחרות</label>
-        <div className="profile-list">{props.competitions.usersList}</div>
+        <div className="profile-list">{list}</div>
       </div>
     </div>
   );

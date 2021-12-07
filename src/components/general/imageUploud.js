@@ -100,18 +100,17 @@ class ImageUpload extends React.Component {
          this.onDrop = this.onDrop.bind(this);
     }
  
-    onDrop(picture) {
+    onDrop(pictures) {
         this.setState({
-            pictures: this.state.pictures.concat(picture),
+            pictures
             
         });
+        
+    }
+   
+
+    render() { 
         console.log(this.state.pictures)
-    }
-    handleChange = () => {
-        this.props.ontake(this.state.pictures);
-    }
- 
-    render() {
         return (
             <div>
             <ImageUploader
@@ -124,7 +123,6 @@ class ImageUpload extends React.Component {
                 maxFileSize={5242880}
                 withPreview={true}>
              </ImageUploader>
-             <button>סיום</button>
             </div>
         );
     }
