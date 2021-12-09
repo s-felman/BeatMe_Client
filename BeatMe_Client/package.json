@@ -1,0 +1,65 @@
+{
+  "name": "beatme",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@dieyne/react-images-uploader": "^1.0.2",
+    "@material-ui/core": "^4.11.4",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "animate.css": "^4.1.1",
+    "axios": "^0.21.4",
+    "bootstrap": "^5.0.0",
+    "emailjs-com": "^3.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mdb-ui-kit": "^3.5.1",
+    "mdbreact": "^5.0.2",
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-bootstrap": "^1.6.0",
+    "react-calendar": "^3.4.0",
+    "react-dom": "^17.0.2",
+    "react-file-base64": "^1.0.3",
+    "react-images-upload": "^1.2.8",
+    "react-multi-carousel": "^2.6.3",
+    "react-redux": "^7.2.4",
+    "react-responsive-carousel": "^3.2.18",
+    "react-router-dom": "^5.2.0",
+    "react-router-scroll-top": "^0.2.1",
+    "react-scripts": "4.0.3",
+    "react-select": "^4.3.1",
+    "react-upload-gallery": "^0.2.0",
+    "redux": "^4.1.0",
+    "redux-localstorage": "^0.4.1",
+    "redux-thunk": "^2.3.0",
+    "save": "^2.4.0",
+    "vue-image-crop-upload": "^3.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

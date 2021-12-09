@@ -1,0 +1,281 @@
+button{
+    border: none;
+    font-family: almoni-ultrabold-aaa;
+}
+.continue-button { 
+width: 304px;
+height: 84px;
+background: #FFFFFF;
+margin-top: 30px;
+margin-bottom: 55px;
+box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19); 
+font-family: almoni-ultrabold-aaa ;
+font-style: normal;
+font-weight: 800;
+font-size: 72px;
+line-height: 93.48%;
+/* or 67px */
+text-align: center;
+color: rgba(255, 44, 69, 0.4);
+}
+.create-style{ 
+    display: grid;
+    grid-template-areas:
+    "nav nav nav"
+    "section section aside"
+    "section section aside";
+	 /* grid-template-rows: 33% 33% 33%;  */
+     grid-template-columns: 1fr 1fr 326px; 
+    height: 100%;
+    width: 100%;
+}
+.create-style > div:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+.create-props{
+    grid-area: section;
+}
+.create-nav{
+    grid-area: nav;
+}
+
+.create-profile{
+    grid-area: aside;   
+    width: 326px;
+    height: auto;
+    top: 111px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+    }
+    
+    .profile-pic{
+    width: 244px;
+    height: 244px;
+    border-radius: 126px;
+    margin-top: 100px;
+    }
+    .profile-name{
+    width: 326px;
+    height: 33px;
+    left: 1594px;
+    margin-top: 5px;
+    font-family: almoni-ultrabold-aaa;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 93.48%;
+    /* or 34px */
+    text-align: center;
+    color: #001F46;
+    }
+    .profile-name-props{
+    width: 326px;
+    height: 33px;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 93.48%;
+    /* or 22px */
+    text-align: center;
+    color: #FF2C45;
+    }
+    .edit-profile-text{
+    width: 326px;
+    height: 33px;
+    margin-top: 8px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 93.48%;
+    /* or 11px */
+    padding: 0px;
+    text-align:center;
+    background-color: #FFFFFF;
+    color: #001F46;
+    }
+    .profile-participants-label{
+    width: 326px;
+    height: 33px;
+    margin-top:55px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 93.48%;
+    /* or 22px */
+    text-align: center;
+    color: #001F46;
+    }
+    .profile-participant-card{
+    width: 262px;
+    height: 49px;
+    padding-top: 7px;
+    text-align: right;
+    padding-right: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+    }
+    .profile-participant-pic{
+    width: 56px;
+    height: 42px;
+    /* top: 674px; */
+    }
+    .profile-participant-name{
+    height: 30px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 93.48%;
+    /* or 22px */
+    padding-right: 25px;
+    text-align: center;
+    color: #001F46;
+    }
+    .profile-list{
+        width: 100%;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-content: space-around;
+        flex-wrap: wrap;
+        
+    }
+    .competition-name-input{
+        width: 369px;
+        height: 51px;
+        text-align: center;
+        margin-top: 100px;
+        background: rgba(255, 255, 255, 0.43);
+        border: 3px solid rgba(0, 31, 70, 0.7);
+        font-family: almoni-dl-aaa-400;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 93.48%;
+/* or 34px */
+
+text-align: center;
+
+color: rgba(0, 31, 70, 0.5);
+        }
+ .select-competition-type{
+            width: 310px;
+            height: 182px;
+            text-align: center;
+            margin-top: 15px;
+            margin: 10px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            background: #FFFFFF;
+            box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19)
+            }
+.card-type-competition{
+        margin-top: 70px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+            }
+.card-center{
+    width: 100%;
+    text-align: -webkit-center;
+}
+.title-type{
+        height: 126px;
+        font-style: almoni-ultrabold-aaa;
+        font-weight: 800;
+        font-size: 48px;
+        line-height: 93.48%;
+        text-align: center;
+        color: rgba(255, 44, 69, 0.7);
+}
+.add-perticipant-button{
+    width: 369px;
+    height: 95px;
+    margin-top: 85px;
+    margin-left: 33px;
+    margin-right: 33px;
+    border: none;
+    font-family:  almoni-ultrabold-aaa ;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 45px;
+    line-height: 93.48%;
+    /* or 42px */
+    text-align: center;
+    color: rgba(0, 31, 70, 0.65);
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+
+}
+.create-buttons-div{
+    display: flex;
+    justify-content: center;
+}
+
+.create-button-selected{
+    border: black;
+    border-width: 2px;
+    width: 310px;
+    height: 182px;
+    font-style: almoni-ultrabold-aaa;
+text-align: center;
+    top: 358px;
+    margin: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    background: #001a3a;
+    box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19)
+}
+
+.search-results{
+
+    position: relative;
+width: 656px;
+height: 394px;
+background: #FFFFFF;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.search-input{
+    width: 369px;
+height: 51px;
+background: rgba(255, 255, 255, 0.43);
+border: 3px solid rgba(0, 31, 70, 0.7);
+font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 93.48%;
+text-align: center;
+
+color: rgba(0, 31, 70, 0.5);
+
+}
+
+.search-button{
+    width: 232px;
+height: 64px;
+left: 212px;
+top: 304px;
+
+background: #FFFFFF;
+box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+    width: 177px;
+    height: 41px;
+    left: 240px;
+    top: 315px;
+    font-family: Almoni Neue DL 4.0 AAA;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 93.48%;
+    text-align: center; 
+    color: rgba(255, 44, 69, 0.47);
+}

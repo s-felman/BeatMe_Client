@@ -1,0 +1,137 @@
+.allCompetitions-style{ 
+    display: grid;
+    grid-template-areas:
+    "nav nav nav"
+    "section section aside"
+    "section section aside";
+	 /* grid-template-rows: 33% 33% 33%;  */
+     grid-template-columns: 1fr 1fr 326px; 
+    height: 100%;
+    width: 100%;
+}
+.allCompetitions-style > div:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+.allCompetitions-details{
+    grid-area: section;
+    display: flex;
+    flex-direction: column;
+
+}
+.allCompetitions-nav{
+    grid-area: nav;
+}
+
+.create-profile{
+    grid-area: aside;   
+    width: 326px;
+    height: auto;
+    top: 111px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+    }
+
+.allCompetitions-header{
+    position: relative;
+top: 60px;
+font-family: almoni-ultrabold-aaa;
+font-style: normal;
+font-weight: 800;
+font-size: 144px;
+line-height: 135px;
+text-align: center;
+color: rgba(243, 58, 80, 0.47);
+}
+
+.allCompetitions-header2{
+    position: relative;
+top: 70px;
+margin-right: 2em;
+font-family: almoni-ultrabold-aaa;
+font-style: normal;
+font-weight: 800;
+font-size: 45px;
+line-height: 93.48%;
+text-align: right;
+color: rgba(0, 31, 70, 0.8);
+}
+
+.allCompetition-card{
+position: relative;
+margin: 5px;
+width: 445px;
+height: 248px;
+left: 119px;
+top: 130px;
+background: #FFFFFF;
+box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+}
+
+.allCompetition-cards{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 80px;
+}
+
+.allCompetitions-card-button{
+    width: 369px;
+    height: 95px;
+    margin-top: 65px;
+    margin-left: 33px;
+    margin-right: 33px;
+    margin-bottom: 110px;
+    border: none;
+    font-family:  almoni-ultrabold-aaa ;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 45px;
+    line-height: 93.48%;
+    /* or 42px */
+    text-align: center;
+    color: rgba(0, 31, 70, 0.65);
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+}
+
+.allCompetition-card-img{
+    width: auto;
+height: 162px;
+left: 1059px;
+top: 430px;
+}
+
+.allCompetition-card-details{
+font-family: almoni-dl-aaa-400;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 93.48%;
+text-align: center;
+color: #001F46
+}
+
+.allCompetition-card-header{
+
+font-family: almoni-ultrabold-aaa;
+font-style: normal;
+font-weight: 800;
+font-size: 48px;
+line-height: 93.48%;
+/* or 45px */
+
+text-align: center;
+
+color: rgba(255, 44, 69, 0.5);
+}
+
+.no-competitions{
+    font-family: almoni-dl-aaa-400;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 93.48%;
+    margin-top: 100px;
+}

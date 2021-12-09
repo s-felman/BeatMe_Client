@@ -1,0 +1,463 @@
+icon{
+  width: 2em;
+}
+.competitions-style{ 
+  display: grid;
+  grid-template-areas:
+  "nav nav nav"
+  "section section aside"
+  "section section aside";
+ /* grid-template-rows: 1fr 650px 1fr;  */
+   grid-template-columns: 1fr 1fr 326px ; 
+  height: 100%;
+  width: 100%;
+}
+.competitions-style > div:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 11;
+}
+.competitions-details{
+  grid-area: section;
+  padding-left: 30px;
+}
+.competitions-nav{
+  grid-area: nav;
+}
+
+
+.oneTask-select{
+    width: max-content;
+}
+
+.comp-father-div{
+  width: fit-content;
+ text-align: -webkit-center;
+}
+.fileContainer {
+  width: 50%;  
+  overflow-y: scroll;   
+  height: 13cm;
+  /* padding-top:4cm; */
+  justify-content: end;
+}
+ .uploadPictureContainer {
+  width: 100%;
+  margin: 3%;
+}
+.fileContainer .chooseFileButton {
+    /* position: absolute; */
+}
+.comp-input-more-details{
+position: relative;
+width: 675px;
+height: 65px;
+margin: 3px;
+text-align: center;
+font-size: xx-large;
+background: rgba(255, 255, 255, 0.43);
+border: 3px solid rgba(0, 31, 70, 0.7);
+}
+.comp-header-secondpage{
+  margin-top: 25px;
+position: relative;
+font-family: almoni-ultrabold-aaa;
+font-style: normal;
+font-weight: 800;
+font-size: 144px;
+line-height: 135px;
+text-align: center;
+color: rgba(243, 58, 80, 0.47);
+
+}
+
+.comp-label-target{
+position: relative;
+width: auto;
+padding: 20px;
+font-family: almoni-ultrabold-aaa;
+font-style: normal;
+font-weight: 800;
+font-size: 45px;
+line-height: 93.48%;
+text-align: right;
+color: #001F46;
+}
+
+.props-button{
+  width: auto;
+height: 30px;
+background: #FFFFFF;
+box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.19);
+position: absolute;
+top: 140px;
+right: 25px;
+font-family: almoni-ultrabold-aaa;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 93.48%;
+/* or 17px */
+
+text-align: center;
+
+color: #001F46;
+}
+
+.create-main-div{
+  width: fit-content;
+}
+
+.competitions-target-details{
+  width: 675px;
+height: 65px;
+font-size: xx-large;
+text-align: center;
+background: rgba(255, 255, 255, 0.43);
+border: 3px solid rgba(0, 31, 70, 0.7);
+}
+
+.competitions-target{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  width: auto;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.comp-calander{
+  width: 618px;
+      max-width: 100%;
+      background: white;
+      border: 1px solid #a0a096;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      line-height: 1.125em;
+      margin-top: 20px;
+      position: relative;
+      right: 8px;
+
+}
+.competition-end-target{
+  text-align: -webkit-center;
+  display: flex;
+  flex-direction: row-reverse;
+  width: fit-content;
+  justify-content: flex-end;
+  align-content: space-between;
+  align-items: baseline;
+  flex-wrap: nowrap
+}
+.competitions-details-next{
+  width: 675px;
+height: 130px; 
+font-size: xx-large;
+text-align: center;
+background: rgba(255, 255, 255, 0.43);
+border: 3px solid rgba(0, 31, 70, 0.7);
+}
+
+.comp-continue-button{
+  width: 426px;
+height: 84px;
+background: #FFFFFF;
+text-align: center;
+margin: 20px;
+margin-top: 50px;
+box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19); 
+font-family: almoni-ultrabold-aaa;
+font-style: normal;
+font-weight: 800;
+font-size: 72px;
+line-height: 93.48%;
+color: rgba(255, 44, 69, 0.4);
+}
+
+.comp-props{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.comp-center-button{
+  text-align: -webkit-center;
+}
+
+.comp-uploud{
+  text-align: left;
+}
+
+.competitions-target-details-date{
+  width: auto;
+height: 26px;
+margin-right: 20px;
+font-family: almoni-dl-aaa-400;
+font-style: normal;
+font-weight: normal;
+font-size: 50px;
+color: rgba(0, 31, 70, 0.7);
+
+}
+.trivia-div-radioButton{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.trivia-radio-select{
+  width: 618px;
+  height: 52px;  
+  margin: 5px;
+  text-align: center;
+  font-size: xx-large;
+  background: rgba(255, 255, 255, 0.43);
+  border: 3px solid rgba(255, 44, 69, 0.7);
+  }
+
+  .trivia-radio-button{
+    color: rgba(255, 44, 69, 0.7);
+    width: 60px;
+    height: 56px;
+    background: #FFFFFF;
+    /* box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.19); */
+  }
+
+.trivia-radios-button{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.trivia-add-qes{
+  height: 30px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.19);
+  font-family: almoni-dl-aaa-400;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 93.48%;
+/* or 17px */
+text-align: center;
+color: #001F46;
+}
+.competitions-list{
+  position: absolute;
+width: 326px;
+height:640px;
+right: 0px;
+padding-top: 30px;
+padding-bottom: 50px;
+overflow-y: auto;
+/* display: flex; */
+flex-direction: column;
+flex-wrap: wrap;
+align-content: space-around;
+align-items: center;
+text-align:-webkit-center;
+background: #FFFFFF;
+box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+
+}
+.competitions-list-header{
+  font-family: almoni-ultrabold-aaa;
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 93.48%;
+text-align: center;
+
+color: rgba(255, 44, 69, 0.4);
+}
+.competitions-list-qes{
+  width: 256px;
+  height: auto;
+  margin: 3px;
+  font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: 800;
+font-size: 36px;
+line-height: 93.48%;
+/* or 34px */
+text-align: center;
+color: rgba(0, 31, 70, 0.45);
+  background: #FFFFFF;
+  box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+}
+.competitions-target-m-details{
+width: 321px;
+height: 45px;
+margin: 2px;
+background: rgba(255, 255, 255, 0.43);
+border: 3px solid rgba(0, 31, 70, 0.7);
+font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 93.48%;
+text-align: right;
+color: rgba(0, 31, 70, 0.5);
+}
+
+.mt-add-div{
+  width: 702px;
+  height: 258px;
+  text-align: center;
+  margin-right: 266px;
+  margin-top: 25px;
+  display: flex;
+  background: #FFFFFF;
+  flex-direction: column;
+  align-items: center;
+}
+
+.votes-add-div{
+  width: 677px;
+  height: 277px;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  margin-top: 25px;
+  display: flex;
+  background: #FFFFFF;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.votes-add-img{
+  font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 93.48%;
+/* or 22px */
+
+text-align: center;
+
+color: rgba(0, 31, 70, 0.5);
+  width: 160px;
+height: 147px;
+margin-right: 10px;
+background: rgba(255, 255, 255, 0.43);
+border: 3px dashed rgba(0, 31, 70, 0.7);
+}
+
+.votes-input{
+  font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 93.48%;
+/* or 22px */
+
+text-align: right;
+
+color: rgba(0, 31, 70, 0.5);
+  width: 321px;
+height: 65px;
+margin: 10px;
+margin-right: 30px;
+background: rgba(255, 255, 255, 0.43);
+border: 3px solid rgba(0, 31, 70, 0.7);
+}
+.votes-input-div{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.votes-div{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.votes-button{
+  width: 126px;
+height: 49px;
+margin: 6px;
+background: #FFFFFF;
+box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.19);
+font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: 800;
+font-size: 36px;
+line-height: 93.48%;
+text-align: center;
+color: rgba(255, 44, 69, 0.47);
+}
+
+.oneTask-target{
+  display: flex;
+  justify-content: end;
+  flex-direction: row-reverse;
+  width: 842px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.votes-list-img{
+  width: 122px;
+height: 122px;
+left: 1763px;
+background-color: tomato;
+}
+ .votes-list-name{
+   text-align:center;
+   width: 122px;
+   height: 122px;
+   display: flex;
+ }
+.votes-list-item{
+  font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: 800;
+font-size: 36px;
+line-height: 93.48%;
+text-align: center;
+color: rgba(0, 31, 70, 0.45);
+}
+
+.votes-list-button{
+
+width: 39px;
+height: 20px;
+margin: 5px;
+background: #FFFFFF;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: 800;
+font-size: 14px;
+line-height: 93.48%;
+text-align: center;
+color: rgba(255, 44, 69, 0.47);
+}
+
+.votes-list{
+  width: 256px;
+  height: auto;
+  margin: 3px;
+  font-family: Almoni Neue DL 4.0 AAA;
+font-style: normal;
+font-weight: 800;
+font-size: 36px;
+line-height: 93.48%;
+/* or 34px */
+text-align: center;
+color: rgba(0, 31, 70, 0.45);
+  background: #FFFFFF;
+  box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
+}
+.mt-list-div{
+  width: 256px;
+  height: auto;
+  margin: 3px;
+  font-family: Almoni Neue DL 4.0 AAA;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 93.48%;
+  text-align: center;
+  color: rgba(0, 31, 70, 0.45);
+  background: #FFFFFF;
+  box-shadow:  0px 0px 14px 1px rgb(0 0 0 / 19%);
+}
+
