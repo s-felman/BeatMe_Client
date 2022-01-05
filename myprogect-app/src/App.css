@@ -1,0 +1,25 @@
+.picture-container{
+  display: flex;
+  background: #00000036;
+  width: 200px;
+  height: 60px;
+  padding: 20px;
+  margin: 20px;
+  justify-content: space-between;
+}
+.picture-content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.picture-name{
+  font-weight: bold;
+}
+.picture-description{
+  font-size: 14px;
+}
+img{
+  width: 70px;
+  border-radius: 5px;
+}

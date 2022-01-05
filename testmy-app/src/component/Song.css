@@ -1,0 +1,16 @@
+.SongD{
+    text-align: center;
+    height: 200px;
+    left: 100px;
+    border: 5px solid rgb(215, 135, 218);
+}
+.SongL{
+    text-align: center;
+    height: 300px;
+    padding-right: 100px;
+    border: 5px solid rgb(215, 135, 218);
+}
+
+
+
+
