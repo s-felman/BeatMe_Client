@@ -1,12 +1,8 @@
 import React, {useState} from "react";
 import { connect } from "react-redux";
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox } from "@material-ui/core";
 import NavBar from "../general/navBar";
-import { Link } from "react-router-dom";
 import {updateAction} from "../../actions/usersActions"
-import { propTypes } from "react-bootstrap/esm/Image";
 
 const UpdateUser=(props)=>{
 
@@ -24,18 +20,18 @@ const UpdateUser=(props)=>{
     const [password,setPassword]=useState("");
     const [getEmail,setgetEmail]=useState(false);
 
-    const user={
-        firstName: firstName,
-        lastName:  lastName,
-        userName:  userName,
-        phone: phone,
-        email: email,
-        password: password,
-        getEmail: getEmail
-    }
+    // const user={
+    //     firstName: firstName,
+    //     lastName:  lastName,
+    //     userName:  userName,
+    //     phone: phone,
+    //     email: email,
+    //     password: password,
+    //     getEmail: getEmail
+    // }
 
     function fnameErrorFucntion(text){
-        if(text!=""){  
+        if(text!==""){  
             setFNameError("");
             setFirstName(text);
         }
@@ -44,7 +40,7 @@ const UpdateUser=(props)=>{
         }
     }
     function lnameErrorFucntion(text){
-        if(text!=""){       
+        if(text!==""){       
             setLNameError("");
             setLastName(text);
 
@@ -56,7 +52,7 @@ const UpdateUser=(props)=>{
         }
     }
     function unameErrorFucntion(text){
-        if(text!=""){            
+        if(text!==""){            
             setUNameError("");
             setUserName(text);
 
@@ -82,7 +78,7 @@ const UpdateUser=(props)=>{
     }
 
     function phoneErrorFuncion(text) {
-        const phoneformat = /^(([0]+(\.[5]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        // const phoneformat = /^(([0]+(\.[5]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(text.length >= 10){
             //if(text.match(phoneformat)){
                 setPhoneError("");

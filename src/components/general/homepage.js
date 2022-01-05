@@ -30,7 +30,7 @@ const HomePage = (props) => {
             setPath('/userlogin')
             setManager('/userlogin')
         }}
-    })
+    },[props])
 
     return (
         <div>
@@ -45,7 +45,7 @@ const HomePage = (props) => {
                         </button>
                     </Link>
                     <Link to={{ pathname: `${path}`, state:'participant' }} >
-                        <button className="animate__pulse" className="select-type">מתחרה פעיל
+                        <button className="animate__pulse select-type">מתחרה פעיל
                         </button>
                     </Link>
                     <Link to={{ pathname: `${create}`, state:'create' }}>

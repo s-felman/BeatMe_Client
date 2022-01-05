@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import "./navBar.css"
 import logo from "../../static/images/logo.png"
@@ -29,10 +29,10 @@ function NavBar(props) {
     setIsLogged('כניסה')
     setLogout('')
   }
-  });
+  },[props]);
 
   useEffect(() => {
-    if (logout == '/') {
+    if (logout === '/') {
       localStorage.setItem('isLogged', 'false')
       localStorage.setItem('user', 'undefined')
     }

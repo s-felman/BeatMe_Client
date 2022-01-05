@@ -13,28 +13,19 @@ const CreateProps = (props) => {
     const handleChange = event => {
         props.onchange(event.target.value);
     }
-    const onform = (data) => {
-        props.onImg(data)
-    }
+
 
     useEffect(() => {
+        const onform = (data) => {
+            props.onImg(data)
+            setUpload(null)
+        }
         if (img) {
             setUpload(<UploadImage onform={(e) => { onform(e) }}></UploadImage>);
-            window.addEventListener("scroll", noscroll);
-            window.removeEventListener("scroll", noscroll);
         }
         else
             setUpload(null);
-    }, [img])
-
-    const noscroll = () => {
-        window.scrollTo(0, 0);
-    }
-
-    const popup = () => {
-        window.addEventListener("scroll", noscroll);
-        window.removeEventListener("scroll", noscroll);
-    }
+    }, [props,img])
 
 
     return (
@@ -42,7 +33,7 @@ const CreateProps = (props) => {
             
             <div className="comp-props">
                 <textarea className="comp-input-more-details" onChange={handleChange} placeholder="...קצת פרטים"></textarea><br />
-                <button className="comp-input-more-details" onClick={popup} onClick={() => { !img ? setImg(true) : setImg(false) }} >העלאת תמונה</button><br />
+                <button className="comp-input-more-details" onClick={() => { !img ? setImg(true) : setImg(false) }} >העלאת תמונה</button><br />
               </div>  
               <div className="comp-uploud">{upload}</div>
             </div>

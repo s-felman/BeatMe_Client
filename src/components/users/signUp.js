@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { connect } from "react-redux";
-import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox } from "@material-ui/core";
 import NavBar from "../general/navBar";
 import { Link } from "react-router-dom";
 import {signupAction} from '../../actions/usersActions';
-import {findEmail} from '../../actions/usersActions';
 import './signUp.css';
 
 
@@ -26,14 +24,13 @@ const SignUp=(props)=>{
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [getEmail,setgetEmail]=useState(false);
-    const [allOkey, setAllOkey]=useState(false)
+    const [allOkey ,setAllOkey]=useState(false)
 
     function fnameErrorFucntion(text){
-        console.log("fname", text)
         if(text!==""){  
             setFNameError("");
             setFirstName(text);
-            
+            setAllOkey(true)
             return true;
         }
         else {
@@ -43,11 +40,10 @@ const SignUp=(props)=>{
         }
     }
     function lnameErrorFucntion(text){
-        console.log("lname", text)
         if(text!==""){       
             setLNameError("");
             setLastName(text);
-
+            setAllOkey(true)
             return true;
         }
         else {
@@ -68,7 +64,7 @@ const SignUp=(props)=>{
             }});         
             setUNameError("");
             setUserName(text);
-
+            setAllOkey(true)
             return true;
         }
         else {
@@ -87,6 +83,7 @@ const SignUp=(props)=>{
         else {
             setPasswordError("")
             setPassword(text);
+            setAllOkey(true)
             return true;
         }
     }
@@ -98,6 +95,7 @@ const SignUp=(props)=>{
             if(text.match(phoneformat)){
                 setPhoneError("");
                 setPhone(text);
+                setAllOkey(true)
                 return true;
             }
             else{
@@ -109,7 +107,7 @@ const SignUp=(props)=>{
 }
 
     function emailErrorFunction(text) {
-        const mailformat = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+        // const mailformat = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
 
         if (text.length>=5) {
             //checks if this email exist
@@ -117,7 +115,6 @@ const SignUp=(props)=>{
             fetch(`http://localhost:3000/users/getbyemail/${text}`).then((response)=> {
                 return response.json();
             }).then((data)=> {
-                console.log(data)
             if(data.message==="email exist"){
                 setEmailError("כתובת מייל זו נמצאת בשימוש")
                 setAllOkey(false)
@@ -125,6 +122,7 @@ const SignUp=(props)=>{
             }});
             setEmailError("");
             setEmail(text);
+            setAllOkey(true)
             return true;
         }
         else {
@@ -134,6 +132,7 @@ const SignUp=(props)=>{
         }
     }
     function func(){
+        if(allOkey)
         props.signupAction(firstName, lastName, userName, phone, email, password, getEmail);
     }
     return(

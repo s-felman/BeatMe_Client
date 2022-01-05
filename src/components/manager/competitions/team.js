@@ -5,7 +5,6 @@ import { createComp } from "../../../actions/compActions";
 
 const Team=(props)=>{
 
-    const [value, setValue] = useState('');
     const [details, setDetails]= useState("");
     const [date, setDate]=useState("");
     const [target, setTarget]= useState("");

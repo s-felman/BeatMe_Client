@@ -12,7 +12,7 @@ export const loginAction = (userName, password) => {
             },
             body: JSON.stringify(body)
         }
-
+        
         fetch('http://localhost:3000/users/login', options)
         .then((res) =>{
             console.log(res)
@@ -132,8 +132,6 @@ export const updateAction = (firstName, lastName, userName, phone, email,oldEmai
               }
             return res.json();
         }).then((data)=> {
-            
-            const isLogged = (typeof data.token !== 'undefined' && data.token !== '');
 
             dispatch({
                 type: "SET_USER_ACTIVE",

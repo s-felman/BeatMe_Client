@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react"
+import React, {  useEffect } from "react"
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import HomePage from './components/general/homepage'; 
@@ -20,8 +20,13 @@ import LiveTrivia from "./components/manager/live competitions/trivia"
 function App() {
 
   useEffect(()=>{
-    // localStorage.setItem('type', "")
-    // localStorage.setItem('compName', "")
+    if (localStorage.getItem('isLogged')!=='true'){
+        localStorage.setItem('type', "")
+        localStorage.setItem('compName', "")
+        localStorage.setItem('isLogged', "false")
+        localStorage.setItem('user', "undefined")
+    }
+
  },[])
 
   return (

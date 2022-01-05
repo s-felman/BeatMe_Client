@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import "./uploadImage.css"
 import React,{Component} from 'react';
 
@@ -28,12 +28,9 @@ class UploadImage extends Component {
 	formData.append("myFile",this.state.selectedFile,);
 	
 	// Details of the uploaded file
-	console.log(this.state.selectedFile);
-	for (var p of formData) {
-        console.log(p);
-      }
 
     this.props.onform(formData)
+
 	// Request made to the backend api
 	// Send formData object
 	// axios.post("http://localhost:3000/users/", formData);

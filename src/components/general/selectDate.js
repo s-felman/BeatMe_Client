@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
 import "./selectDate.css";
 import Calendar from "react-calendar";
 import Moment from 'moment';
-const SelectDate = (props) => {
+const SelectDate = () => {
 
-    const [date, setDate] = useState("");
+    const [ setDate] = useState("");
     const [value, setValue] = useState(new Date());
     const [dateDiv, setDateDiv] = useState(false)
     const [data, setData] = useState();
@@ -13,14 +12,15 @@ const SelectDate = (props) => {
     useEffect(() => {
         setValue(value);
         console.log("ddd", value)
-    })
+    },[value])
+
     useEffect(() => {
         if (dateDiv) {
             setData(<Calendar className="comp-calander" onChange={onChange} value={value} calendarType="Hebrew" ></Calendar>);
         }
         else
             setData(null);
-    }, [dateDiv])
+    }, [dateDiv, setData, value])
 
     function onChange(nextValue) {
         console.log("naet", nextValue)

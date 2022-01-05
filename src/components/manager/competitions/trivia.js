@@ -11,8 +11,8 @@ import { Radio } from "@material-ui/core";
 const Trivia = (props) => {
 
   const [details, setDetails] = useState("");
-  const [date, setDate] = useState("");
-  const [target, setTarget] = useState("");
+  const [date] = useState("");
+  const [target] = useState("");
   const [typeProps, setTypeProps] = useState([]);
   const [question, setQuestion]= useState('')
   const [option1, setOption1]= useState('')
@@ -23,8 +23,8 @@ const Trivia = (props) => {
   const [save, setSave]= useState('')
   const [form, setForm]= useState(new FormData())
   const [checked, setChecked]=useState('')
-    useEffect(() => {
 
+    useEffect(() => {
       if(props.location.compProps!==undefined){
         localStorage.setItem("usersList", props.location.compProps.userList)
       }
@@ -35,8 +35,8 @@ const Trivia = (props) => {
     {
       setAdd('שינוי')
     }
+    },[props, change]);
 
-  });
   const comp = {
     compName: localStorage.getItem("compName"),
     adminId: props.user._id,

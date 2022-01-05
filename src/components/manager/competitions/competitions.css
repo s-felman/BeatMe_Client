@@ -386,7 +386,7 @@ color: rgba(255, 44, 69, 0.47);
 
 .oneTask-target{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   flex-direction: row-reverse;
   width: 842px;
   text-align: center;

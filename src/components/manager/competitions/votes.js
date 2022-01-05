@@ -5,20 +5,16 @@ import { Link } from 'react-router-dom';
 import { createVotesComp, createVComp, updateCompAction} from "../../../actions/compActions";
 import {getUserAction} from "../../../actions/usersActions"
 import NavBar from "../../general/navBar";
-import UploadImage from "../../general/uploadImage";
-import pic from "../../../static/images/cake.png"
-import ImageUpload from "../../general/imageUploud";
 const Votes = (props) => {
 
 
   const [details, setDetails] = useState("");
-  const [date, setDate] = useState("");
-  const [target, setTarget] = useState("");
+  const [date] = useState("");
+  const [target] = useState("");
   const [img, setImg] = useState(false);
   const [upload, setUpload] = useState()
-  const [typeProps, setTypeProps] = useState([]);
+  const [typeProps] = useState([]);
   const [itemImg, setItemImg]= useState(null)
-  const [name, setName] = useState(""); 
   const [itemsImg, setItemsImg]= useState(new FormData())
   const [itemName, setItemName]= useState('')
   const [itemDetails, setItemDetails]= useState('')
@@ -33,10 +29,9 @@ const Votes = (props) => {
   if( props.user.userName===null){
     props.getUserAction(JSON.parse(localStorage.getItem("user"))._id)
   }
-  // if( props.comp._id===undefined){
-  //   props.getUserAction(JSON.parse(localStorage.getItem("user"))._id)
-  // }
-  })
+  },[props])
+
+
   const comp = {
     compName: localStorage.getItem("compName"),
     adminId: props.user._id,
@@ -59,14 +54,17 @@ const Votes = (props) => {
       form.append("usersList", comp.usersList)
       form.append("typeProps", JSON.stringify(comp.typeProps))
       props.createVComp(form);
-      console.log(props.comp)
       setForm(new FormData())
     }
+    // eslint-disable-next-line
   },[])
 
 
 
   useEffect(() => {
+    const addImage=()=>{
+      itemsImg.append("myFile", itemImg)
+    }
     if (img) {
         setUpload(<div className="upload-image">
         <div  className="upload-image-div">
@@ -80,37 +78,25 @@ const Votes = (props) => {
     }
     else
         setUpload(null);
-}, [img])
-
-  useEffect(() => {
-    console.log("comp!", comp)
-  })
-
-  const addImage=()=>{
-
-    itemsImg.append("myFile", itemImg)
-  }
+}, [img, itemsImg, itemImg])
 
   const onform=()=> {
     itemsImg.append("compId", props.comp._id)
     itemsImg.append("itemName", `${itemName}`)
     itemsImg.append("itemDetails", `${itemDetails}`)
-    for (var p of itemsImg) {
-      console.log(p);
-    }
-
     props.createVotesComp(itemsImg)
     setItemsImg(new FormData())
+
   }
 
   const onchange = (data) => {
     setDetails(data)
   }
 
-  function addQ(){
-    const qe = { itemName: itemName, itemDetails: itemDetails, itemImg: itemImg.name};
-    setTypeProps([...typeProps, qe]);
-  }
+  // function addQ(){
+  //   const qe = { itemName: itemName, itemDetails: itemDetails, itemImg: itemImg.name};
+  //   setTypeProps([...typeProps, qe]);
+  // }
   function changeQ(){
     typeProps.forEach(i => {
       if (i.itemName===save){
@@ -136,7 +122,7 @@ const Votes = (props) => {
     return (
         <div className="competitions-list-qes">
           <div  className="votes-div">
-      <img className="votes-list-img" src=""></img>
+      <img className="votes-list-img" src="" alt="img"></img>
       <div className="votes-list-name">{p.itemName}</div></div>
       <button onClick={()=>{changeQ(); setSave(p.itemName); setItemName(p.itemName); setItemDetails(p.itemDetails); }} 
       className="votes-list-button" > עריכה </button>
@@ -157,10 +143,14 @@ const onImg=(data)=>{
     form.append("targetDate", comp.targetDate)
     form.append("usersList", comp.usersList)
     form.append("typeProps", JSON.stringify(comp.typeProps))
-    // form.append("items", itemsImg)
-    props.updateCompAction(form);
-    setForm(new FormData())
+    const id= props.comp._id
+    props.updateCompAction(form, id).then(()=>{
+      setForm(new FormData())
+
+    });
+    
   }
+
   return (
     <div className="competitions-style">
       <NavBar className="competitions-nav"></NavBar>

@@ -11,8 +11,8 @@ import SelectDate from "../../general/selectDate";
 const OneTask = (props) => {
   const [details, setDetails] = useState("");
   const [date, setDate] = useState(new Date());
-  const [target, setTarget] = useState("");
-  const [typeProps, setTypeProps] = useState([]);
+  const [target] = useState("");
+  const [typeProps] = useState([]);
   const [form, setForm] = useState(new FormData())
 
   useEffect(() => {

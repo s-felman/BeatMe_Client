@@ -1,13 +1,8 @@
-import React, {useState ,useEffect } from 'react';
+import React, {useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card } from 'react-bootstrap';
 import "./flexBox.css";
-import cake from "../../static/images/cake.png"
-import cycle from "../../static/images/cycling.png"
-import lab from "../../static/images/laboratory.png"
-import macaroons from "../../static/images/macaroons.png"
-import notebook from "../../static/images/notebook.png"
 import {getAllCompAction} from "../../actions/compActions";
 import { connect } from "react-redux";
 const FlexWrap=(props)=> {
@@ -15,7 +10,8 @@ const FlexWrap=(props)=> {
 
     useEffect(()=>{
      props.getAllCompAction()
-    },[Box]);
+     // eslint-disable-next-line
+    },[ ]);
 //note that 
   const mymap = props.competitions
     .map(p =>{

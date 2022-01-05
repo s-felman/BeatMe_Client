@@ -20,8 +20,8 @@ const MultiTasks = (props) => {
   const [value2, setValue2] = useState(new Date());
   const [dateDiv2, setDateDiv2] = useState(false)
   const [data2, setData2] = useState();
-  const [change, setChange] = useState(false)
-  const [add, setAdd] = useState('הוספה')
+  const [change] = useState(false)
+  const [add] = useState('הוספה')
   const [save, setSave] = useState('')
   const [form, setForm] = useState(new FormData())
 
@@ -32,27 +32,8 @@ const MultiTasks = (props) => {
     if (props.user.userName === null) {
       props.getUserAction(JSON.parse(localStorage.getItem("user"))._id)
     }
-  })
-  useEffect(() => {
-    setValue(value);
-    console.log(comp)
-  })
-
-  useEffect(() => {
-    if (dateDiv) {
-      setData(<Calendar className="comp-calander" onChange={onChange} value={value} calendarType="Hebrew" ></Calendar>);
-    }
-    else
-      setData(null);
-  }, [dateDiv])
-  useEffect(() => {
-    if (dateDiv2) {
-      setData2(<Calendar className="comp-calander" onChange={onChange2} value={value2} calendarType="Hebrew" ></Calendar>);
-    }
-    else
-      setData2(null);
-  }, [dateDiv2])
-
+  },[props])
+  
   const comp = {
     compName: localStorage.getItem("compName"),
     adminId: props.user._id,
@@ -64,6 +45,25 @@ const MultiTasks = (props) => {
     typeProps: typeProps
   }
 
+  useEffect(() => {
+    setValue(value);
+  },[value])
+
+  useEffect(() => {
+    if (dateDiv) {
+      setData(<Calendar className="comp-calander" onChange={onChange} value={value} calendarType="Hebrew" ></Calendar>);
+    }
+    else
+      setData(null);
+  }, [dateDiv, value])
+
+  useEffect(() => {
+    if (dateDiv2) {
+      setData2(<Calendar className="comp-calander" onChange={onChange2} value={value2} calendarType="Hebrew" ></Calendar>);
+    }
+    else
+      setData2(null);
+  }, [dateDiv2, value2])
 
   const onchange = (data) => {setDetails(data)}
 

@@ -33,8 +33,8 @@ export const usersReducer = (state = initState, action) => {
             break;
         case "LOGIN_ERROR":
             state= {...state, loginError: action.payload}
-        default:
             break;
+        default:
     }
 
     console.log('Users Reducers', state);

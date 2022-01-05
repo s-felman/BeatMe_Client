@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 import { Card } from 'react-bootstrap';
 import { getCompByManagerAction } from "../../actions/compActions"
 import { getUserAction } from "../../actions/usersActions"
-import profile from "../../static/images/profile-pic.png"
 import "./allCompetitions.css"
 import NavBar from "../general/navBar";
 
 const AllComp = (props) => {
-   
+    const [managerId, setManagerId] = useState(props.user._id);
+    const [compList, setCompList] = useState([])
+    const [nocompList, setNoCompList] = useState("");
+
     useEffect(() => {
         if (props.isLogged === true && props.user.userName === null) {
             var u = JSON.parse(localStorage.getItem('user'));
@@ -23,11 +25,9 @@ const AllComp = (props) => {
         else{
             setNoCompList("")
         }
+    },[props, compList, managerId])
 
-    })
-    const [managerId, setManagerId] = useState(props.user._id);
-    const [compList, setCompList] = useState([])
-    const [nocompList, setNoCompList] = useState("")
+
     
     useEffect(() => {
         if (props.competitions !== null && props.competitions !== undefined) {
@@ -36,18 +36,8 @@ const AllComp = (props) => {
         else {
             props.getCompByManagerAction(managerId)
         }
-    });
+    },[props, managerId]);
 
-    const participants = []
-    const list = participants
-        .map(p => {
-            return (
-                <div className="profile-participant-card">
-                    <label className="profile-participant-name">{p.name}</label>
-                    <img className="profile-participant-pic" src={p.pic}></img>
-                </div>
-            )
-        })
     const competitionslist = compList.map(p => {
         return (
             
@@ -78,7 +68,7 @@ const AllComp = (props) => {
             </div>
 
             <div className="create-profile">
-                <img src={"http://localhost:3000/"+props.user.image} className="profile-pic"></img>
+                <img src={"http://localhost:3000/"+props.user.image} className="profile-pic" alt="img"></img>
                 <label className="profile-name">{props.user.userName}</label>
                 <label className="profile-name-props">מנהל התחרות</label>
                 <Link to="/updateUser">

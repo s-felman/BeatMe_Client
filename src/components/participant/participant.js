@@ -1,6 +1,5 @@
 import React,{useEffect} from "react";
 import NavBar from "../general/navBar";
-import profile from "../../static/images/participant-profil.png"
 import "./participant.css";
 import {connect} from "react-redux";
 import { Link } from 'react-router-dom';

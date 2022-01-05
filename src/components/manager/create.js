@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react"
+import React, { useState, useEffect } from "react"
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import "./create.css";
@@ -8,15 +8,6 @@ import {getUserAction} from "../../actions/usersActions"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
-
-
-import profile from "../../static/images/profile-pic.png"
-import profile1 from "../../static/images/profilim 1.png";
-import profile2 from "../../static/images/profilim 3.png";
-import profile3 from "../../static/images/profilim 4.png";
-import profile4 from "../../static/images/profilim 5.png";
-import profile5 from "../../static/images/profilim 6.png";
-
 
 
 init("user_qMw5HuferY6tdn7CfelD1");
@@ -57,7 +48,7 @@ const Create = (props) => {
     const [pathError, setPathError] = useState('');
     const [manager, setManager] = useState('');
     const [managerId, setManagerId]=useState('')
-    const [placeholder_name, setPlaceholder_name]=useState('שם לתחרות')
+    const [placeholder_name]=useState('שם לתחרות')
   useEffect(() => {
       
       if(props.match.params.id!=null&& props.user.userName===null){
@@ -66,7 +57,7 @@ const Create = (props) => {
       setManager(props.user.userName);
       setManagerId(props.user._id)
 
-    });
+    },[props]);
 
   useEffect(()=>{
       setButtonSelected(localStorage.getItem('type'))
@@ -139,7 +130,7 @@ const Create = (props) => {
         setShowResults(false)
       }
 
-      const Results =(props) => {
+      const Results =() => {
         const [username, setUsername] = useState("");
         const [useremail, setUseremail] = useState("");
         useEffect(()=>{
@@ -218,7 +209,7 @@ const Create = (props) => {
 
       </div>
       <div className="create-profile">
-        <img src={"http://localhost:3000/"+props.user.image} className="profile-pic"></img>
+        <img src={"http://localhost:3000/"+props.user.image} alt="img" className="profile-pic"></img>
         <label className="profile-name">{props.user.userName}</label>
         <label className="profile-name-props">מנהל התחרות</label>
         <Link to="/updateUser">
