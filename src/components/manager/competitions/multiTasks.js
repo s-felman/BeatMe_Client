@@ -21,7 +21,7 @@ const MultiTasks = (props) => {
   const [dateDiv2, setDateDiv2] = useState(false)
   const [data2, setData2] = useState();
   const [change] = useState(false)
-  const [add] = useState('הוספה')
+  const [ add,] = useState('שמירה')
   const [save, setSave] = useState('')
   const [form, setForm] = useState(new FormData())
 
@@ -37,7 +37,7 @@ const MultiTasks = (props) => {
   const comp = {
     compName: localStorage.getItem("compName"),
     adminId: props.user._id,
-    compType: localStorage.getItem("type"),
+    compType: '/'+window.location.pathname.split("/")[1],
     usersList: localStorage.getItem("usersList"),
     details: details,
     target: target,
@@ -130,7 +130,7 @@ const MultiTasks = (props) => {
           <div> <Link to={`/create/${props.user._id}`}>  <button className="props-button">חזור</button></Link></div>
           <div className="competitions-list">
             <div className="competitions-list-header">משימות אמצע</div>
-            <div >{listQ}</div>
+            <div className="competitions-listQ" >{listQ!== null? listQ:  'כרגע אין לך משימות'}</div>
           </div>
           <CreateProps onchange={(e) => { onchange(e) }} onImg={(e)=>{ onImg(e)}}></CreateProps>
           <div className="competitions-target">

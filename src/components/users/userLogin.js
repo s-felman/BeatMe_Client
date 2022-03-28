@@ -33,9 +33,11 @@ const UserLogin = (props) => {
             setPath(`/create`)
         else if  (props.location.state === "participant")
             setPath(`/participant`)
-        else
-            setPath('/manager')
-
+        else{
+            setPath(`/participant`)
+            // setPath('')
+            // setUser('')
+        }
     }
 
 

@@ -13,7 +13,10 @@ min-height: 100%;
 
 }
 .home-page{
-    background-color:rgba(196, 196, 196, 0.31)
+    background-color:rgba(196, 196, 196, 0.31);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .footer{
 
@@ -56,8 +59,7 @@ background-repeat: no-repeat;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: stretch;
-    align-content: flex-start;
+    gap: 10px;
 }
 
 .titles{
@@ -80,7 +82,7 @@ color: rgba(243, 58, 80, 0.47);
 }
 .details{
     position: relative;
-width: 100%;
+width: 80%;
 /* height: 176px; */
 padding: 0em 4em 4em 4em;
 margin-top: 30px;

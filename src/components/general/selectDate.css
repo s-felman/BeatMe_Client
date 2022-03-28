@@ -1,6 +1,11 @@
 .select-date{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    flex-direction: row-reverse;
-  text-align: center;
+    text-align: center;
+ 
+}
+[class*='react-calander']{
+  width: 618px;
 }

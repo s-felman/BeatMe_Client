@@ -40,18 +40,13 @@ const Trivia = (props) => {
   const comp = {
     compName: localStorage.getItem("compName"),
     adminId: props.user._id,
-    compType: localStorage.getItem("type"),
+    compType: '/'+window.location.pathname.split("/")[1],
     usersList: localStorage.getItem("usersList"),
     details: details,
     target: target,
     targetDate: date,
     typeProps: typeProps
   }
-
-  useEffect(() => {
-    console.log("product props is", props.location);
-    console.log("comp!", comp)
-  })
 
   const onchange = (data) => {
     setDetails(data)
@@ -74,8 +69,7 @@ const Trivia = (props) => {
   function addQ(){
     if(!change){
     const qe = {question:question, option1: option1, option2: option2, option3: option3, checked: checked };
-    setTypeProps([...typeProps, qe]);
-    
+    setTypeProps([...typeProps, qe]); 
   }
   else{
     typeProps.forEach(i => {
@@ -140,7 +134,10 @@ const Trivia = (props) => {
               <input className="trivia-radio-select"  type="text" value={option3} onChange={event => setOption3(event.target.value)}
               placeholder="תשובה אופציונאלית שלישית" name="gender" />
               </div>
-              <button className="trivia-add-qes" onClick={()=>{addQ(); setQuestion(""); setOption1(""); setOption2("");setOption3("")}}>{add}</button>
+              <button className="trivia-add-qes" 
+              onClick={()=>{addQ();setChecked(''); setQuestion(""); setOption1(""); setOption2("");setOption3("")}}>
+                {add}
+              </button>
             </div>
           </div>
           <div className="comp-center-button">

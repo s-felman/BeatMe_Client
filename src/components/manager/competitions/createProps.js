@@ -19,9 +19,10 @@ const CreateProps = (props) => {
         const onform = (data) => {
             props.onImg(data)
             setUpload(null)
+            setImg(false)
         }
         if (img) {
-            setUpload(<UploadImage onform={(e) => { onform(e) }}></UploadImage>);
+            setUpload(<UploadImage  onform={(e) => { onform(e) }}></UploadImage>);
         }
         else
             setUpload(null);

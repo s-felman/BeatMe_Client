@@ -5,7 +5,7 @@ import React,{Component} from 'react';
 class UploadImage extends Component {
 
 	state = {
-
+	open: false,
 	// Initially, no file is selected
 	selectedFile: null
 	};
@@ -20,7 +20,7 @@ class UploadImage extends Component {
 	
 	// On file upload (click the upload button)
 	onFileUpload = () => {
-	
+	this.setState({open: false})
 	// Create an object of formData
 	const formData = new FormData();
 	

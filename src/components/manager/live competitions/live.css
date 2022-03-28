@@ -1,0 +1,22 @@
+.liveCompetitions-style{ 
+    display: grid;
+    grid-template-areas:
+    "nav nav nav"
+    "section section section"
+    "section section section";
+	 /* grid-template-rows: 33% 33% 33%;  */
+     grid-template-columns: 1fr 1fr 1fr; 
+    height: 100%;
+    width: 100%;
+}
+.live-competitions-details{
+    grid-area: section;
+    padding: 30px;
+    align-items: center;
+}
+.winner:hover{
+    cursor: pointer;
+}
+.winnerLine{
+    background-color: coral;
+}

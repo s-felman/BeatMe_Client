@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import { connect } from "react-redux";
-import { Checkbox } from "@material-ui/core";
 import NavBar from "../general/navBar";
 import { Link } from "react-router-dom";
 import {signupAction} from '../../actions/usersActions';
@@ -8,9 +7,7 @@ import './signUp.css';
 
 
 const SignUp=(props)=>{
-    useEffect(()=>{
-        
-    })
+
     const [fnameError,setFNameError]=useState("");
     const [lnameError,setLNameError]=useState("");
     const [unameError,setUNameError]=useState("");
@@ -23,7 +20,6 @@ const SignUp=(props)=>{
     const [phone,setPhone]=useState("");
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-    const [getEmail,setgetEmail]=useState(false);
     const [allOkey ,setAllOkey]=useState(false)
 
     function fnameErrorFucntion(text){
@@ -131,50 +127,45 @@ const SignUp=(props)=>{
             return false;
         }
     }
-    function func(){
+     function func(){
         if(allOkey)
-        props.signupAction(firstName, lastName, userName, phone, email, password, getEmail);
+        debugger
+        props.signupAction(firstName, lastName, userName, phone, email, password)
+        
+        
+        
     }
     return(
       <div>
           <NavBar></NavBar>
-          <form>
-              <label className=".signUp-title">יצירת חשבון</label> 
-              <label className="signUp-firstName-text" required>שם פרטי</label>
-              <input className="signUp-firstName" type="text" id="firstName" 
-              onChange={(e)=>fnameErrorFucntion(e.target.value)}></input><br/><br/>
-              <span className='error'>{ fnameError }</span><br/>
-              <label className="signUp-lastName-text">שם משפחה</label>
-              <input className="signUp-lastName" type="text" 
+          <form className="form-login">
+              <label className="titles-login">יצירת חשבון</label> 
+              <Link to="/userlogin" className="go-to-new">משתמש קיים? היכנס</Link>
+              <input className="insert-props" type="text" placeholder="שם פרטי" id="firstName" 
+              onChange={(e)=>fnameErrorFucntion(e.target.value)}></input>
+              <span className='error'>{ fnameError }</span>
+              <input className="insert-props" type="text" placeholder='שם משפחה'
               onChange={(e)=>lnameErrorFucntion(e.target.value)}
-              ></input><br/><br/>
-              <span className='error'>{ lnameError }</span><br/>
-              <label className="signUp-userName-text">שם משתמש</label>
-              <input className="signUp-userName" type="text" name="UserName" 
+              ></input>
+              <span className='error'>{ lnameError }</span>
+              <input className="insert-props" type="text" placeholder='שם משתמש' name="UserName" 
               onChange={(e)=>unameErrorFucntion(e.target.value)}
-              ></input><br/><br/>
-              <span className='error'>{ unameError }</span><br/>
-              <label className="signUp-phone-text">טלפון</label>
-              <input className="signUp-phone" type="text" 
+              ></input>
+              <span className='error'>{ unameError }</span>
+              <input className="insert-props" type="text" placeholder='טלפון'
               onChange={(e)=>phoneErrorFuncion(e.target.value)}
-              ></input><br/><br/>
-              <span className='error'>{ phoneError }</span><br/>
-              <label className="signUp-email-text">כתובת מייל</label>
-              <input className="signUp-email" type="email" 
+              ></input>
+              <span className='error'>{ phoneError }</span>
+              <input className="insert-props" type="email" placeholder='כתובת מייל'
               onChange={(e)=>emailErrorFunction(e.target.value)}
-              ></input><br/><br/>
-              <span className='error'>{ emailError }</span><br/>
-              <label className="signUp-password-text">סיסמא</label>
-              <input className="signUp-password" type="password" 
+              ></input>
+              <span className='error'>{ emailError }</span>
+              <input className="insert-props" type="password" placeholder='סיסמא'
               onChange={(e)=>passwordErrorFunction(e.target.value)}
-              ></input><br/><br/>
-              <span className='error'>{ passwordError }</span><br/>
-              <label className="signUp-checkbox-text">אישור קבלת הודעות במייל</label>
-              <Checkbox className="signUp-checkbox" id="getEmail" 
-              onChange={(e)=>setgetEmail(e.target.value)}
-              ></Checkbox><br/>
-              <button className="signUp-enterUser" type="submit" onClick={func}>רישום </button><br/><br/>
-              <Link to="/userlogin" className=".enter-loginUser">משתמש קיים? היכנס</Link>
+              ></input>
+              <span className='error'>{ passwordError }</span>
+              <button className="button-login" type="submit" onClick={()=>func()} disabled={!allOkey}>רישום </button>
+              
           </form>
       </div>  
     )

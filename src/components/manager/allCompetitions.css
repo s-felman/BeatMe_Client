@@ -26,7 +26,7 @@
 .create-profile{
     grid-area: aside;   
     width: 326px;
-    height: auto;
+    height: -webkit-fill-available;
     top: 111px;
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
@@ -67,17 +67,22 @@ top: 130px;
 background: #FFFFFF;
 box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19);
 }
-
+table{
+    direction: rtl
+}
 .allCompetition-cards{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     margin-bottom: 80px;
+    /* justify-content: center; */
+    margin-left: 130px;
 }
 
 .allCompetitions-card-button{
-    width: 369px;
+    width: auto;
+    padding: 26px;
     height: 95px;
     margin-top: 65px;
     margin-left: 33px;

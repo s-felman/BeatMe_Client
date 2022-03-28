@@ -12,7 +12,10 @@
         phone: null,
         email: null,
         password: null,
-        getEmail: null
+        getEmail: null,
+        image: null,
+        competitionsList: null
+        
     },
     loginError:null
 }

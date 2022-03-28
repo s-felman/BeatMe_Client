@@ -1,3 +1,7 @@
+a{
+    text-decoration: none !important;
+}
+
 .participant-style{ 
     display: grid;
     grid-template-areas:
@@ -9,6 +13,7 @@
     height: 100%;
     width: 100%;
 }
+
 .participant-style > div:nth-child(1) {
     grid-column-start: 1;
     grid-column-end: 5;
@@ -113,4 +118,7 @@
     text-align: center;
     background-color: #FFFFFF;
     color: #001F46;
+}
+.linkComp{
+    display: none;
 }

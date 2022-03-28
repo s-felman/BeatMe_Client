@@ -7,6 +7,21 @@
         {
             "type": "aws-sam",
             "request": "direct-invoke",
+            "name": "beatme_client:src/actions/usersActions.getUsersAction (nodejs12.x)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "${workspaceFolder}/",
+                "lambdaHandler": "src/actions/usersActions.getUsersAction"
+            },
+            "lambda": {
+                "runtime": "nodejs12.x",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
             "name": "beatme_client:src/actions/compActions.createVComp (nodejs14.x)",
             "invokeTarget": {
                 "target": "code",

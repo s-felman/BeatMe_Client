@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const loginAction = (userName, password) => {
     return async (dispatch) => {
         const body = {
@@ -23,7 +25,6 @@ export const loginAction = (userName, password) => {
            })  
         }
         return res.json();
-  
     }).then((data)=> {
             console.log("from login",data)
             const isLogged = (typeof data.user !== 'undefined' && data.user !== undefined);
@@ -39,33 +40,36 @@ export const loginAction = (userName, password) => {
     }
 }
 
-
 export const signupAction = (firstName, lastName, userName, phone, email, password, getEmail) => {
- 
     return async (dispatch) => {
         const body = {
             firstName, lastName, userName, phone, email, password, getEmail
         }   
-        console.log("aaa",body)
-        const options = {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(body)
-        }
+        // const options = {
+        //     method: 'POST',
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(body)
+        // }
 
-        fetch('http://localhost:3000/users/signup', options)
+        axios.post('http://localhost:3000/users/signup', body)
         .then((res) =>{
+            debugger
             if (res.status === 401) {
-                throw new Error("authentication failed")
+                dispatch({
+                    type: "LOGIN_ERROR",
+                    payload: res.json()
+                })  
               }
             if (res.status === 409) {
                alert("אחד או יותר מהפרטים אינו תואם את הדרישות")
-              }
-            return res.json();
-        }).then((data)=> {
-            
+            }
+            //  return res.json();
+            })
+            .then((data)=> {
+                alert("משתמש נרשם בהצלחה")  
+                window.location.replace('/userlogin') 
             const isLogged = (typeof data.token !== 'undefined' && data.token !== '');
 
              dispatch({
@@ -75,8 +79,7 @@ export const signupAction = (firstName, lastName, userName, phone, email, passwo
             dispatch({
                 type: "SET_USER_ACTIVE",
                 payload: data.user
-            })
-            alert("משתמש נרשם בהצלחה")
+            })  
         });
     }
 }
@@ -85,7 +88,7 @@ export const logoutAction = () => {
     
     localStorage.setItem('user','undefined')
     localStorage.setItem('isLogged', 'false')  
-    
+    window.location.replace('/')
     const nullUser={
         firstName: null,
         lastName:  null,
@@ -171,6 +174,53 @@ export const getUserAction = (userID) => {
                 type: "LOGIN",
                 payload: true
             })
+        });
+    }
+}
+
+export const registerToCompAction = (id, compId) => {
+    return async (dispatch) => {
+        const body = {
+            id, compId
+        }   
+        const options = {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        }
+
+        fetch('http://localhost:3000/users/registercomp', options)
+        .then((res) =>{
+            if (res.status === 401) {
+                throw new Error("authentication failed")
+              }
+            if (res.status === 409) {
+               alert("ההרשמה נכשלה, נסה שנית")
+              }
+            return res.json();
+        }).then((data)=> {
+
+            dispatch({
+                type: "SET_USER_ACTIVE",
+                payload: data.user
+            })
+            alert("נרשמת בהצלחה לתחרות")
+            const options = {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+               
+            }
+            fetch(`http://localhost:3000/competitions/getcompetition/${compId}`, options )
+            .then((response) => {
+                return response.json();     
+            }).then((data) => {
+                window.location.replace(`http://localhost:3001/participant${data.competition.compType}/${data.competition._id}`)
+            });
+             
         });
     }
 }

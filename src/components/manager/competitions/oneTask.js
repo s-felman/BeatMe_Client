@@ -27,7 +27,7 @@ const OneTask = (props) => {
   const comp = {
     compName: localStorage.getItem("compName"),
     adminId: props.user._id,
-    compType: localStorage.getItem("type"),
+    compType: '/'+window.location.pathname.split("/")[1],
     usersList: localStorage.getItem("usersList"),
     details: details,
     target: target,
@@ -46,6 +46,7 @@ const OneTask = (props) => {
   const onImg = (data) => { setForm(data) }
 
   function createFunc() {
+    debugger
     form.append("compName", comp.compName)
     form.append("adminId", comp.adminId)
     form.append("compType", comp.compType)
@@ -61,9 +62,9 @@ const OneTask = (props) => {
 
 
   return (
-    <div className="competitions-style">
+    <div className="competitions-ot-style">
       <NavBar className="competitions-nav"></NavBar>
-      <div className="competitions-details">
+      <div className="competitions-ot-details">
         <div className="comp-father-div">
           <h1 className="comp-header-secondpage">{localStorage.getItem("compName")}</h1>
           <div> <Link to={`/create/${props.user._id}`}>  <button className="props-button">חזור</button></Link></div>

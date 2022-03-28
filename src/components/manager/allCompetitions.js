@@ -38,12 +38,23 @@ const AllComp = (props) => {
         }
     },[props, managerId]);
 
-    const competitionslist = compList.map(p => {
+const competitionslist = compList.map(p => {
+        var image= `http://localhost:3000/${p.image}`;
+
+    const style={
+        backgroundImage: `url(${image})`,
+        width: "441px",
+        height: "321px",
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPositionY: "-37px"
+       }
         return (
             
-            <Card  className="allCompetition-card" >
-                <div className="card-out-div">
-            <Card.Img variant="top" className="allCompetition-card-img" src={"http://localhost:3000/" + p.image } />
+            <Card  className="allCompetition-card" onClick={()=> window.location.replace(`http://localhost:3001/livetrivia/${p._id}`)}>
+                 <div style={style}>
+            {/* <Card.Img variant="top" className="allCompetition-card-img" src={"http://localhost:3000/" + p.image } /> */}
               </div>
               <Card.Title className="allCompetition-card-header">{p.compName}</Card.Title>
               <Card.Text className="allCompetition-card-details">

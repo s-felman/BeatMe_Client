@@ -28,8 +28,9 @@
     "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
     "react-router-scroll-top": "^0.2.1",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.0",
     "react-select": "^4.3.1",
+    "react-show-more-text": "^1.5.2",
     "react-upload-gallery": "^0.2.0",
     "redux": "^4.1.0",
     "redux-localstorage": "^0.4.1",
@@ -44,11 +45,17 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "browser": {
+    "[module-name]": false
   },
   "browserslist": {
     "production": [

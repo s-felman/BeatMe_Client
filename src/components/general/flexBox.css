@@ -4,6 +4,7 @@
     display: flex;
     padding: 8px;
     flex-wrap: no-wrap;
+    justify-content: center;
 }
 
 .enter{
@@ -25,16 +26,12 @@ color: rgba(255, 44, 69, 0.4);
 .title{
 position: relative;
 height: 1.9em;
-
 font-family:almoni-ultrabold-aaa;
 font-style: normal;
 font-weight: 800;
 font-size: 48px;
 line-height: 84.48%;
-/* or 41px */
-
 text-align: center;
-
 color: rgba(0, 31, 70, 0.75);
 }
 .details1{
